@@ -1,18 +1,35 @@
 #include "stdafx.h"
 #include "Configuration.h"
-#include <fstream>
 
 Configuration::Configuration(){
 }
 
-void Configuration::Run() {
+void Configuration::Run(){
+	string cmd;	
 	bool val = false;
 	
 	do {
 		system("cls");
-		DisplayMenu(); // Separar Logica de UserInterface
+		
+		DisplayMOne(&cmd);
+		DisplayMenu(&val, &cmd);
 
+		cout << endl;
+		system("pause");
 	} while (val != true);
+}
+
+void Configuration::DisplayMenu(bool *val, string *cmd) {
+
+}
+
+void Configuration::DisplayMOne(string *cmd) {
+	cout << "--- Lista de Comandos Fase 1 --- \n" << endl;
+	cout << endl;
+	cout << "config <nomeFicheiro>" << endl;
+	cout << endl;
+	cout << "Comando: " << endl;
+	getline(cin, *cmd);
 }
 
 Configuration::~Configuration(){}
