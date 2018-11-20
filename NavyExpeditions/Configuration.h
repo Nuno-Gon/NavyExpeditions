@@ -12,8 +12,9 @@ class Configuration{
 public:
 	Configuration();
 	void Run();
-	void DisplayMenu(bool *val, string *cmd);
-	void DisplayMOne(string *cmd);
+	void DisplayMenu(bool *val, string comando);
+	void DisplayMOne(string *comando);
 	void DisplayMTwo();
+	void GetFileInfo(string fich);
 	~Configuration();
 };
