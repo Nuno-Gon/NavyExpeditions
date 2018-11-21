@@ -11,10 +11,9 @@ using namespace std;
 class Configuration{
 public:
 	Configuration();
-	void Run();
-	void DisplayMenu(bool *val, string comando);
-	void DisplayMOne(string *comando);
-	void DisplayMTwo();
-	void GetFileInfo(string fich);
+	void run();
+	void resolveCommands(bool *val, string comando);
+	void displayMenuOne(string *comando);
+	void getFileConfig(bool *val, string fich);
 	~Configuration();
 };
