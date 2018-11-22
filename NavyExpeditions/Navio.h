@@ -11,6 +11,10 @@ class Navio //: public Posicao
 {
 private:
 	int id;
+	int soldados;
+	int mercadorias;
+	int peixe;
+	int agua;
 
 public:
 	Navio();
@@ -22,4 +26,5 @@ public:
 		this->id = id;
 	}	
 
+	~Navio();
 };

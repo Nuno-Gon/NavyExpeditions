@@ -6,7 +6,7 @@
 #include <vector>
 #include "Navio.h"
 
-class Veleiro : public Navio {
-	Veleiro();
-	~Veleiro();
+class Escuna : public Navio {
+	Escuna();
+	~Escuna();
 };
