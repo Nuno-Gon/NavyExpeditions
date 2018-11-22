@@ -6,7 +6,8 @@ Game::Game()
 {
 }
 
-void Game::displayMenuTwo(string *comando) {
+void Game::displayMenuTwo(/*string *comando*/) {
+	string comando;
 	cout << "--- Lista de Comandos Fase 2 --- \n" << endl;
 	cout << endl;
 	cout << "exec <nomeFicheiro>" << endl;
@@ -31,11 +32,30 @@ void Game::displayMenuTwo(string *comando) {
 	cout << "sair" << endl;
 	cout << endl;
 	cout << "Comando: " << endl;
-	getline(cin, *comando);
+	getline(cin, comando);
+	getCommand(comando);
 }
 
-void Game::getFileCommands(bool *val, string fich) {
+void Game::getCommand(string comando) {
 	string cmd;
+	istringstream iss(comando);
+	iss >> cmd;
+
+	// Ver qual é o comando
+	if (cmd == "exec") {
+		iss >> cmd; //fica com o nome do ficheiro guardado
+		getFileCommands(cmd);
+	}
+	else {
+		if (cmd == "compranav") {
+			iss >> cmd; // fica com o tipo de navio a ser comprado
+
+		}
+	}
+}
+void Game::getFileCommands(string fich) {
+	string cmd;
+	string line;
 	fstream file;
 	file.open(fich);
 
@@ -46,8 +66,8 @@ void Game::getFileCommands(bool *val, string fich) {
 	}
 	else {
 		while (!file.eof()) {
-			getline(file, cmd);
-			//resolveCommands(*val, cmd);
+			getline(file, line);
+			// interpreta o comando e executa
 		}
 	}
 }

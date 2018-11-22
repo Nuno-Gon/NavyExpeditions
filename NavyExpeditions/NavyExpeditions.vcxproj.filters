@@ -27,6 +27,12 @@
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Navio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Veleiro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
