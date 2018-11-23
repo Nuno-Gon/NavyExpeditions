@@ -7,6 +7,15 @@
 #include "Navio.h"
 
 class Escuna : public Navio {
+private:
+	int quantidade;
+
+public:
 	Escuna();
+
+	void setQuantidade(int q) {
+		this->quantidade = q;
+	}
+
 	~Escuna();
 };

@@ -7,6 +7,15 @@
 #include "Navio.h"
 
 class Fragata : public Navio {
+private:
+	int quantidade;
+
+public:
 	Fragata();
+
+	void setQuantidade(int q) {
+		this->quantidade = q;
+	}
+
 	~Fragata();
 };

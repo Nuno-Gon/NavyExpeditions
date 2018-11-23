@@ -7,6 +7,15 @@
 #include "Navio.h"
 
 class Veleiro : public Navio {
+private:
+	int quantidade;
+
+public:
 	Veleiro();
+
+	void setQuantidade(int q) {
+		this->quantidade = q;
+	}
+
 	~Veleiro();
 };
