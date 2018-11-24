@@ -7,8 +7,6 @@
 #include "Navio.h"
 
 class Fragata : public Navio {
-private:
-	int quantidade;
 
 public:
 	Fragata();

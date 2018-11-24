@@ -1,5 +1,11 @@
 #include "stdafx.h"
 #include "Game.h"
+#include "Configuration.h"
+#include "Navio.h"
+#include "Veleiro.h"
+#include "Escuna.h"
+#include "Fragata.h"
+#include "Galeao.h"
 
 
 Game::Game()
@@ -49,7 +55,10 @@ void Game::getCommand(string comando) {
 	else {
 		if (cmd == "compranav") {
 			iss >> cmd; // fica com o tipo de navio a ser comprado
+			if (cmd == "V") {
+				Veleiro v;
 
+			}
 		}
 	}
 }

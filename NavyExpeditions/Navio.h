@@ -7,24 +7,26 @@
 
 using namespace std;
 
-class Navio //: public Posicao
-{
+class Navio {
 private:
 	int id;
 	int soldados;
 	int mercadorias;
 	int peixe;
 	int agua;
+	int quantidade_v;
+	int quantidade_g;
+	int quantidade_e;
+	int quantidade_f;
 
 public:
 	Navio();
-	Navio(int id);
-	int getId() {
-		return this->id;
+	Navio(int, int, int, int, int, char) {
+		
 	}
-	void setId(int id) {
-		this->id = id;
-	}	
+	
+	int getId();
+	void setId(int id);
 
 	~Navio();
 };

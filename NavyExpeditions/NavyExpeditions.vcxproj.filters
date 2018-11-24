@@ -42,6 +42,9 @@
     <ClInclude Include="Fragata.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Porto.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

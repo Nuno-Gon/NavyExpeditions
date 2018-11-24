@@ -6,14 +6,12 @@
 #include <vector>
 #include "Navio.h"
 
-class Galeao : public Navio {
+using namespace std;
 
-public:
-	Galeao();
+class Porto {
+	vector<Navio> navios;
 
-	void setQuantidade(int q) {
-		this->quantidade = q;
-	}
+	Porto();
 
-	~Galeao();
-};
+	~Porto();
+}
