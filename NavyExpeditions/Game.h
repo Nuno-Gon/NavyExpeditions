@@ -11,8 +11,9 @@ class Game{
 public:
 	Game();
 
-	void displayMenuTwo(string *comando);
-	void getFileCommands(bool *val, string fich);
+	void displayMenuTwo(/*string *comando*/);
+	void getCommand(string comando);
+	void getFileCommands(string fich);
 
 	~Game();
 };
