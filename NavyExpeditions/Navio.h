@@ -4,10 +4,11 @@
 #include <sstream>
 #include <fstream>
 #include <vector>
+#include "Posicao.h"
 
 using namespace std;
 
-class Navio {
+class Navio : public Posicao {
 private:
 	static int numNavios;
 	int id;

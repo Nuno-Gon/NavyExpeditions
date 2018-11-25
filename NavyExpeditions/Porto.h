@@ -5,10 +5,11 @@
 #include <fstream>
 #include <vector>
 #include "Navio.h"
+#include "Posicao.h"
 
 using namespace std;
 
-class Porto {
+class Porto : public Posicao{
 public:
 
 	Porto();
