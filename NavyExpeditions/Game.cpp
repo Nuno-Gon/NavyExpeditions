@@ -14,7 +14,7 @@ Game::Game(Configuration config) {
 	this->config = config;
 }
 
-void Game::displayMenuTwo(/*string *comando*/) {
+void Game::displayMenuTwo() {
 	string comando;
 	cout << "--- Lista de Comandos Fase 2 --- \n" << endl;
 	cout << endl;
@@ -41,10 +41,10 @@ void Game::displayMenuTwo(/*string *comando*/) {
 	cout << endl;
 	cout << "Comando: " << endl;
 	getline(cin, comando);
-	getCommand(comando);
+	resolveCommand(comando);
 }
 
-void Game::getCommand(string comando) {
+void Game::resolveCommand(string comando) {
 	string cmd;
 	istringstream iss(comando);
 	iss >> cmd;
