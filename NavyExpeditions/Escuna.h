@@ -9,7 +9,7 @@
 class Escuna : public Navio {
 
 public:
-	Escuna(int);
+	Escuna();
 
 	~Escuna();
 };
