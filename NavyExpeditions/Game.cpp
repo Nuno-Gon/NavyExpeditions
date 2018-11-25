@@ -12,7 +12,6 @@
 
 Game::Game(Configuration config) {
 	this->config = config;
-	config.run();
 }
 
 void Game::displayMenuTwo(/*string *comando*/) {

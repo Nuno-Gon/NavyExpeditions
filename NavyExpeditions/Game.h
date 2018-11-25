@@ -12,8 +12,8 @@ class Game{
 public:
 	Game(Configuration config);
 
-	void displayMenuTwo(/*string *comando*/);
-	void getCommand(string comando);
+	void displayMenuTwo();
+	void resolveCommand(string comando);
 	void getFileCommands(string fich);
 
 	~Game();
