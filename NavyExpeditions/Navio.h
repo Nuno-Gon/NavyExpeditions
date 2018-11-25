@@ -21,9 +21,7 @@ private:
 
 public:
 	Navio();
-	Navio(int, int, int, int, int, char) {
-		
-	}
+	Navio(int, int, int, int, int, char);
 	
 	int getId();
 	int getSoldados();

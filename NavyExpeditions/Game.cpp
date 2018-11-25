@@ -10,9 +10,9 @@
 #include "Jogador.h"
 #include <vector>
 
-
-Game::Game()
-{
+Game::Game(Configuration config) {
+	this->config = config;
+	config.run();
 }
 
 void Game::displayMenuTwo(/*string *comando*/) {
@@ -57,9 +57,9 @@ void Game::getCommand(string comando) {
 	}
 	else {
 		if (cmd == "compranav") {
-			int i;
+			int i=0;
 			iss >> cmd; // fica com o tipo de navio a ser comprado
-			for (i = 0; !Jogador::navios.empty(); i++);
+			//for (i = 0; !Jogador::navios.empty(); i++);
 			if (cmd == "v") {
 				Veleiro v(i);
 				cout << "Comprou um navio do tipo Veleiro" << endl;
