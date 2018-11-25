@@ -56,23 +56,21 @@ void Game::resolveCommand(string comando) {
 	}
 	else {
 		if (cmd == "compranav") {
-			int i=0;
 			iss >> cmd; // fica com o tipo de navio a ser comprado
-			//for (i = 0; !Jogador::navios.empty(); i++);
 			if (cmd == "v") {
-				Veleiro v(i);
+				Veleiro v();
 				cout << "Comprou um navio do tipo Veleiro" << endl;
 			}
 			else if (cmd == "e") {
-				Escuna e(i);
+				Escuna e();
 				cout << "Comprou um navio do tipo Escuna" << endl;
 			}
 			else if (cmd == "g") {
-				Galeao g(i);
+				Galeao g();
 				cout << "Comprou um navio do tipo Galeao" << endl;
 			}
 			else if (cmd == "f") {
-				Fragata f(i);
+				Fragata f();
 				cout << "Comprou um navio do tipo Fragata" << endl;
 			}
 			else {

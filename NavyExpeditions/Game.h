@@ -9,9 +9,8 @@
 using namespace std;
 
 class Game{
-public:
+public:
 	Game(Configuration config);
-
 	void displayMenuTwo();
 	void resolveCommand(string comando);
 	void getFileCommands(string fich);
