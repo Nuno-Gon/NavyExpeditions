@@ -9,6 +9,6 @@
 class Veleiro : public Navio {
 
 public:
-	Veleiro();
+	Veleiro(int);
 	~Veleiro();
 };

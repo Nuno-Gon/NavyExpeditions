@@ -9,11 +9,7 @@
 class Escuna : public Navio {
 
 public:
-	Escuna();
-
-	void setQuantidade(int q) {
-		this->quantidade = q;
-	}
+	Escuna(int);
 
 	~Escuna();
 };

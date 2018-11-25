@@ -3,10 +3,9 @@
 
 Navio::Navio() {};
 
-Navio::Navio(int i, int s, int m, int p, int a, char t) {
+Navio::Navio(int i, int s, int p, int a, char t) {
 	this->id = i;
 	this->soldados = s;
-	this->mercadorias = m;
 	this->peixe = p;
 	this->agua = a;
 	if (t == 'v') {

@@ -9,11 +9,7 @@
 class Fragata : public Navio {
 
 public:
-	Fragata();
-
-	void setQuantidade(int q) {
-		this->quantidade = q;
-	}
+	Fragata(int);
 
 	~Fragata();
 };

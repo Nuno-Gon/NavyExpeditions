@@ -9,6 +9,7 @@
 using namespace std;
 
 class Porto {
+public:
 	vector<Navio> navios;
 
 	Porto();

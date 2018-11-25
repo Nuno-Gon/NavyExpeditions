@@ -11,7 +11,6 @@ class Navio {
 private:
 	int id;
 	int soldados;
-	int mercadorias;
 	int peixe;
 	int agua;
 	int quantidade_v;
@@ -21,7 +20,7 @@ private:
 
 public:
 	Navio();
-	Navio(int, int, int, int, int, char) {
+	Navio(int, int, int, int, char) {
 		
 	}
 	

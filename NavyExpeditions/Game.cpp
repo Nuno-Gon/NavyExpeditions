@@ -6,6 +6,8 @@
 #include "Escuna.h"
 #include "Fragata.h"
 #include "Galeao.h"
+#include "Porto.h"
+#include <vector>
 
 
 Game::Game()
@@ -54,11 +56,31 @@ void Game::getCommand(string comando) {
 	}
 	else {
 		if (cmd == "compranav") {
+			int i;
 			iss >> cmd; // fica com o tipo de navio a ser comprado
-			if (cmd == "V") {
-				Veleiro v;
-
+			for (i = 0; !Porto::navios.empty(); i++);
+			if (cmd == "v") {
+				Veleiro v(i);
+				cout << "Comprou um navio do tipo Veleiro" << endl;
 			}
+			else if (cmd == "e") {
+				Escuna e(i);
+				cout << "Comprou um navio do tipo Escuna" << endl;
+			}
+			else if (cmd == "g") {
+				Galeao g(i);
+				cout << "Comprou um navio do tipo Galeao" << endl;
+			}
+			else if (cmd == "f") {
+				Fragata f(i);
+				cout << "Comprou um navio do tipo Fragata" << endl;
+			}
+			else {
+				cout << "Tipo de navio inexistente!" << endl;
+				return;
+			}
+
+			//Jogador::moedas = Jogador::moedas - 100;
 		}
 	}
 }

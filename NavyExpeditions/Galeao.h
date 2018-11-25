@@ -9,11 +9,7 @@
 class Galeao : public Navio {
 
 public:
-	Galeao();
-
-	void setQuantidade(int q) {
-		this->quantidade = q;
-	}
+	Galeao(int);
 
 	~Galeao();
 };
