@@ -7,6 +7,7 @@
 #include "Fragata.h"
 #include "Galeao.h"
 #include "Porto.h"
+#include "Jogador.h"
 #include <vector>
 
 
@@ -58,7 +59,7 @@ void Game::getCommand(string comando) {
 		if (cmd == "compranav") {
 			int i;
 			iss >> cmd; // fica com o tipo de navio a ser comprado
-			for (i = 0; !Porto::navios.empty(); i++);
+			for (i = 0; !Jogador::navios.empty(); i++);
 			if (cmd == "v") {
 				Veleiro v(i);
 				cout << "Comprou um navio do tipo Veleiro" << endl;

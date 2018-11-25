@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 #include <string>
 #include <sstream>
 #include <fstream>
@@ -8,10 +7,13 @@
 
 using namespace std;
 
-class Porto {
+class Jogador {
+private:
+	int moedas;
+
 public:
+	vector<Navio> navios;
+	Jogador();
 
-	Porto();
-
-	~Porto();
+	~Jogador();
 };
