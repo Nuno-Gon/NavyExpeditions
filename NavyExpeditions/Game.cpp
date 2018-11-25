@@ -14,6 +14,26 @@ Game::Game(Configuration config) {
 	this->config = config;
 }
 
+void Game::run() {
+	string comando;
+	bool val = false;
+
+	for (auto i = config.map.begin(); i != config.map.end(); ++i) {
+		cout << *i << endl;
+	}
+	cin.get();
+
+	do {
+		system("cls");
+
+		displayMenuTwo();
+		resolveCommand(comando);
+
+		cout << endl;
+		system("pause");
+	} while (val != true);
+}
+
 void Game::displayMenuTwo() {
 	string comando;
 	cout << "--- Lista de Comandos Fase 2 --- \n" << endl;

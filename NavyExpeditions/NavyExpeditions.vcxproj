@@ -151,6 +151,7 @@
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Navio.h" />
     <ClInclude Include="Porto.h" />
+    <ClInclude Include="Posicao.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Veleiro.h" />
@@ -165,6 +166,7 @@
     <ClCompile Include="Navio.cpp" />
     <ClCompile Include="NavyExpeditions.cpp" />
     <ClCompile Include="Porto.cpp" />
+    <ClCompile Include="Posicao.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
