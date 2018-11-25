@@ -112,24 +112,21 @@ void Configuration::getFileConfig(bool *val, string fich) {
 				setProbMotim(stof(c));
 			}
 			else {
-				cout << "map" << c;
+				map.push_back(c);
 			}
-				
-			cin.get();
-			/*
-			get linhas
-			get	colunas
-			get MAPA = matrix[l][c]
-	
-			for(int l=0 ; l<linhas ; l++){
-				for(int c=0 ; c<colunas ; c++){
-					matrix[l][c]=;
-				}
-			}
-
-			depois if command
-			*/
 		}
+		
+		//imprime mapa
+		/*for (auto i = map.begin(); i != map.end(); ++i){
+			cout << *i << endl;
+		}*/
+
+		//imprime o "A" maiusculo na posicao (2,10) do mapa
+		/*auto i = map.begin();
+		cout << i[2][10] << endl; 
+		*/
+
+		*val = true;
 	}
 }
 //Getters
@@ -162,5 +159,9 @@ void Configuration::setProbTempestade(float p) { this->probtempestade = p; }
 void Configuration::setProbSereias(float p) { this->probsereias = p; }
 void Configuration::setProbCalmaria(float p) { this->probcalmaria = p; }
 void Configuration::setProbMotim(float p) { this->probmotim = p; }
+
+vector<string> Configuration::getMapa() {
+	return map;
+}
 
 Configuration::~Configuration(){}

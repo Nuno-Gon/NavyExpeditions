@@ -48,6 +48,8 @@ public:
 	void setProbCalmaria(float p);
 	void setProbMotim(float p);
 
+	vector<string> getMapa();
+
 private:
 	int linhas;
 	int colunas;
@@ -63,4 +65,6 @@ private:
 	float probsereias;
 	float probcalmaria;
 	float probmotim;
+
+	vector<string> map;
 };
