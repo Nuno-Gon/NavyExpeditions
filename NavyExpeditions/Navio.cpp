@@ -1,10 +1,13 @@
 #include "stdafx.h"
 #include "Navio.h"
 
+int Navio::numNavios = 0;
+
 Navio::Navio() {};
 
-Navio::Navio(int i, int s, int p, int m, int a, char t) {
-	this->id = i;
+Navio::Navio(int s, int p, int m, int a, char t) {
+	this->numNavios++;
+	this->id = numNavios;
 	this->soldados = s;
 	this->peixe = p;
 	this->mercadoria = m;

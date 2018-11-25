@@ -9,7 +9,7 @@
 class Fragata : public Navio {
 
 public:
-	Fragata(int);
+	Fragata();
 
 	~Fragata();
 };

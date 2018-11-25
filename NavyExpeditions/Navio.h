@@ -9,6 +9,7 @@ using namespace std;
 
 class Navio {
 private:
+	static int numNavios;
 	int id;
 	int soldados;
 	int peixe;
@@ -21,7 +22,7 @@ private:
 
 public:
 	Navio();
-	Navio(int, int, int, int, int, char);
+	Navio(int, int, int, int, char);
 	
 	int getId();
 	int getSoldados();

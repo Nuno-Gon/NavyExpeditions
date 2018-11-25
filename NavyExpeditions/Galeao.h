@@ -9,7 +9,7 @@
 class Galeao : public Navio {
 
 public:
-	Galeao(int);
+	Galeao();
 
 	~Galeao();
 };
