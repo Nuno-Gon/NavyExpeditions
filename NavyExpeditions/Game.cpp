@@ -18,15 +18,10 @@ void Game::run() {
 	string comando;
 	bool val = false;
 
-	for (auto i = config.map.begin(); i != config.map.end(); ++i) {
-		cout << *i << endl;
-	}
-	cin.get();
-
 	do {
 		system("cls");
-
-		displayMenuTwo();
+		displayMap();
+		displayMenuTwo();	
 		resolveCommand(comando);
 
 		cout << endl;
@@ -34,8 +29,17 @@ void Game::run() {
 	} while (val != true);
 }
 
+void Game::displayMap() {
+	for (auto i = config.map.begin(); i != config.map.end(); ++i) {
+		cout << *i << endl;
+	}
+	cout << endl;
+	cin.get();
+}
+
 void Game::displayMenuTwo() {
 	string comando;
+	system("cls");
 	cout << "--- Lista de Comandos Fase 2 --- \n" << endl;
 	cout << endl;
 	cout << "exec <nomeFicheiro>" << endl;

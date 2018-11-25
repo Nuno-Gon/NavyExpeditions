@@ -16,6 +16,7 @@ public:
 	void resolveCommand(string comando);
 	void getFileCommands(string fich);
 	void run();
+	void displayMap();
 	~Game();
 
 private:
