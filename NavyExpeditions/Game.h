@@ -19,6 +19,8 @@ public:
 	void getFileCommands(string fich);
 	void run();
 	void displayMap();
+	void setShipsMap();
+	void moveNavios();
 	~Game();
 
 private:

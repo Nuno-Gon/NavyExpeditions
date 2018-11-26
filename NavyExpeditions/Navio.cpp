@@ -11,16 +11,16 @@ Navio::Navio(int s, int p, int m, int a, char t) {
 	this->mercadoria = m;
 	this->agua = a;
 	if (t == 'v') {
-		this->quantidade_v++;
+		this->setIcon('v');
 	}
 	if (t == 'g') {
-		this->quantidade_g++;
+		this->setIcon('g');
 	}
 	if (t == 'e') {
-		this->quantidade_e++;
+		this->setIcon('e');
 	}
 	if (t == 'f') {
-		this->quantidade_f++;
+		this->setIcon('f');
 	}
 }
 
