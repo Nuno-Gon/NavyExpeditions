@@ -51,6 +51,9 @@
     <ClInclude Include="Posicao.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Iate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -87,6 +90,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Posicao.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Iate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
