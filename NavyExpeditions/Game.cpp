@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Game.h"
-#include "Configuration.h"
 #include "Navio.h"
 #include "Veleiro.h"
 #include "Escuna.h"
@@ -9,6 +8,7 @@
 #include "Porto.h"
 #include "Jogador.h"
 #include <vector>
+#include <ctime>
 
 Game::Game(Configuration config) {
 	this->config = config;
@@ -23,6 +23,9 @@ void Game::run() {
 		displayMap();
 		displayMenuTwo();	
 		resolveCommand(comando);
+
+		auto i = config.map.begin();
+		cout << i[2][10] << endl;
 
 		cout << endl;
 		system("pause");
@@ -72,6 +75,7 @@ void Game::resolveCommand(string comando) {
 	string cmd;
 	istringstream iss(comando);
 	iss >> cmd;
+	srand((unsigned int)time(NULL));
 
 	// Ver qual é o comando
 	if (cmd == "exec") {
@@ -82,19 +86,22 @@ void Game::resolveCommand(string comando) {
 		if (cmd == "compranav") {
 			iss >> cmd; // fica com o tipo de navio a ser comprado
 			if (cmd == "v") {
-				Veleiro v();
+				Veleiro v;
+				v.setX(rand() % 20);
+				v.setY(rand() % 10);
+				jog.setVeleiro(v);
 				cout << "Comprou um navio do tipo Veleiro" << endl;
 			}
 			else if (cmd == "e") {
-				Escuna e();
+				Escuna e;
 				cout << "Comprou um navio do tipo Escuna" << endl;
 			}
 			else if (cmd == "g") {
-				Galeao g();
+				Galeao g;
 				cout << "Comprou um navio do tipo Galeao" << endl;
 			}
 			else if (cmd == "f") {
-				Fragata f();
+				Fragata f;
 				cout << "Comprou um navio do tipo Fragata" << endl;
 			}
 			else {

@@ -4,16 +4,29 @@
 #include <fstream>
 #include <vector>
 #include "Navio.h"
+#include "Veleiro.h"
+#include "Escuna.h"
+#include "Fragata.h"
+#include "Galeao.h"
 
 using namespace std;
 
 class Jogador {
-private:
-	int moedas;
-
 public:
-	vector<Navio> navios;
+	
 	Jogador();
+	
+	void setVeleiro(Veleiro v);
+	void setEscuna(Escuna e);
+	void setFragata(Fragata f);
+	void setGaleao(Galeao g);
 
+	vector<Navio> getVectorNavios();
+	
 	~Jogador();
+
+private:
+	int money;
+	vector<Navio> navios;
+	//vector<Porto> portos;
 };

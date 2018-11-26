@@ -3,8 +3,6 @@
 
 int Navio::numNavios = 0;
 
-Navio::Navio() {};
-
 Navio::Navio(int s, int p, int m, int a, char t) {
 	this->numNavios++;
 	this->id = numNavios;

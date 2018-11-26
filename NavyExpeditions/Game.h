@@ -5,6 +5,8 @@
 #include <fstream>
 #include <vector>
 #include "Configuration.h" 
+#include "Porto.h"
+#include "Jogador.h"
 
 using namespace std;
 
@@ -21,5 +23,6 @@ public:
 
 private:
 	Configuration config;
+	Jogador jog;
 };
 

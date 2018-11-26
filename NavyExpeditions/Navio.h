@@ -22,7 +22,6 @@ private:
 	int quantidade_f;
 
 public:
-	Navio();
 	Navio(int, int, int, int, char);
 	
 	int getId();
@@ -33,7 +32,6 @@ public:
 	int getQuantidade_g();
 	int getQuantidade_e();
 	int getQuantidade_f();
-
 
 	void setId(int id);
 	void setSoldades(int s);
