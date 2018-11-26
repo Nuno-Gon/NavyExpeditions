@@ -1,4 +1,1 @@
 compranav v
-compranav f
-compranav g
-compranav e

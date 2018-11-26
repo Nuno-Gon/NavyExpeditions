@@ -8,6 +8,7 @@
 #include "Escuna.h"
 #include "Fragata.h"
 #include "Galeao.h"
+#include "Iate.h"
 
 using namespace std;
 

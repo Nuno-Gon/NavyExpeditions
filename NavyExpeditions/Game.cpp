@@ -99,7 +99,7 @@ void Game::resolveCommand(string comando) {
 			if (cmd == "v") {
 				Veleiro v; 
 				v.setX(2); //criar navio no porto principal
-				v.setY(2);
+				v.setY(10);
 				jog.setVeleiro(v);
 				cout << "Comprou um navio do tipo Veleiro" << endl;
 			}
@@ -148,7 +148,9 @@ void Game::getFileCommands(string fich) {
 	else {
 		while (!file.eof()) {
 			getline(file, line);
-			// interpreta o comando e executa
+			string cmd;
+			istringstream iss(line);
+			resolveCommand(line);
 		}
 	}
 }
