@@ -20,7 +20,7 @@ public:
 	void setEscuna(Escuna e);
 	void setFragata(Fragata f);
 	void setGaleao(Galeao g);
-
+	void moveNavios();
 	vector<Navio> getVectorNavios();
 	
 	~Jogador();

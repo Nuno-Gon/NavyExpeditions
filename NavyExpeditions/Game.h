@@ -20,7 +20,6 @@ public:
 	void run();
 	void displayMap();
 	void setShipsMap();
-	void moveNavios();
 	~Game();
 
 private:
