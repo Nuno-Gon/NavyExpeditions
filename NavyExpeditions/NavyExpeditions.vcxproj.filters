@@ -54,6 +54,18 @@
     <ClInclude Include="Iate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Celula.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Terra.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Terreno.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -93,6 +105,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Iate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Celula.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Terra.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Terreno.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
