@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class Porto : public Posicao{
+class Porto : public Terreno{
 public:
 
 	Porto();

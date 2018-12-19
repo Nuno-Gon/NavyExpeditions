@@ -27,6 +27,7 @@ public:
 	~Jogador();
 
 private:
+
 	int money;
 	vector<Navio> navios;
 	//vector<Porto> portos;

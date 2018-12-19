@@ -30,7 +30,6 @@ void Game::run() {
 		system("pause");
 	} while (val != true);
 }
-
 void Game::displayMap() {
 	for (auto i = config.map.begin(); i != config.map.end(); ++i) {
 		cout << *i << endl;
@@ -38,7 +37,6 @@ void Game::displayMap() {
 	cout << endl;
 	cin.get();
 }
-
 void Game::setShipsMap() {
 	int x, y;
 	char c;
@@ -51,7 +49,6 @@ void Game::setShipsMap() {
 		config.map[x][y] = c;
 	}
 }
-
 void Game::displayMenuTwo() {
 	string comando;
 	system("cls");
@@ -82,7 +79,6 @@ void Game::displayMenuTwo() {
 	getline(cin, comando);
 	resolveCommand(comando);
 }
-
 void Game::resolveCommand(string comando) {
 	string cmd;
 	istringstream iss(comando);
@@ -133,7 +129,6 @@ void Game::resolveCommand(string comando) {
 		}
 	}
 }
-
 void Game::getFileCommands(string fich) {
 	string cmd;
 	string line;

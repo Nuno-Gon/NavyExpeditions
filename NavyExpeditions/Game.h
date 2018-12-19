@@ -7,6 +7,7 @@
 #include "Configuration.h" 
 #include "Porto.h"
 #include "Jogador.h"
+#include "Celula.h"
 
 using namespace std;
 
@@ -25,5 +26,6 @@ public:
 private:
 	Configuration config;
 	Jogador jog;
+	vector <vector <Celula>> grelha;
 };
 
