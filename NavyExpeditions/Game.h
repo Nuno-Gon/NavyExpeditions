@@ -21,11 +21,12 @@ public:
 	void run();
 	void displayMap();
 	void setShipsMap();
+	void setGrelha();
 	~Game();
-
+	vector <vector <Celula>> grelha;
 private:
 	Configuration config;
 	Jogador jog;
-	vector <vector <Celula>> grelha;
+	
 };
 

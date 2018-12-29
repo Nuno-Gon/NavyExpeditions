@@ -16,24 +16,22 @@ class Celula
 public:
 	Celula();
 
-	Celula(char ch) {
-		if (ch == '.')
-			t = new Mar();
-		else if (ch == '+')
-			t = new Terra();
-		else
-			t = new Porto();
-		/*for (int i = 0; i < mapa.size(); i++){
-			grelha.push_back(vector<celula>());
-			for (int j = 0; j < nCol; j++){
-				grelha.push_back(Celula(mapa[i][j]));
+	Celula(char ch);
+
+	friend ostream& operator<<(ostream& os, const vector<vector<Celula>>& g) {
+		for (unsigned int i = 0; i < g.size(); i++) {
+			cout << endl;
+			for (unsigned int j = 0; j < g[i].size(); j++) {
+				cout << g[i][j].img;
 			}
-		}*/
-	};
+		}
+		return os;
+	}
 
 	~Celula();
 
 private:
 	Terreno * t;
+	char img;
 };
 

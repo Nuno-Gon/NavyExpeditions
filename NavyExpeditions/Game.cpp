@@ -17,11 +17,13 @@ Game::Game(Configuration config) {
 void Game::run() {
 	string comando;
 	bool val = false;
+	setGrelha();
 
 	do {
 		system("cls");
-		displayMap();
-		displayMenuTwo();	
+		displayMap(); //Aparecer 2x2 com cores
+		cin.get();
+		displayMenuTwo();
 		resolveCommand(comando);
 		jog.moveNavios();
 		setShipsMap();
@@ -31,17 +33,14 @@ void Game::run() {
 	} while (val != true);
 }
 void Game::displayMap() {
-	for (auto i = config.map.begin(); i != config.map.end(); ++i) {
-		cout << *i << endl;
-	}
-	cout << endl;
+	cout << grelha << endl;
 	cin.get();
 }
 void Game::setShipsMap() {
 	int x, y;
 	char c;
 	auto i = jog.getVectorNavios();
-	for (int j = 0; j < jog.getVectorNavios().size(); j++){
+	for (unsigned int j = 0; j < jog.getVectorNavios().size(); j++){
 		x = i[j].getX();
 		y = i[j].getY();
 		c = i[j].getIcon();
@@ -90,7 +89,7 @@ void Game::resolveCommand(string comando) {
 		getFileCommands(cmd);
 	}
 	else {
-		if (cmd == "compranav") {
+		if (cmd == "compranav") { //Ser tratado pela class Navio
 			iss >> cmd; // fica com o tipo de navio a ser comprado
 			if (cmd == "v") {
 				Veleiro v; 
@@ -147,6 +146,19 @@ void Game::getFileCommands(string fich) {
 			istringstream iss(line);
 			resolveCommand(line);
 		}
+	}
+}
+void Game::setGrelha() {
+	/*passar o mapa de um Vetor de Strings
+	* para um vetor 2D de Celulas
+	* cada Celula têm um Ponteiro *t para o tipo
+	* de Terreno -> (Mar,Terra,Porto)
+	*/
+	for (int i = 0; i < config.getLinhas(); i++) {
+		grelha.push_back(vector<Celula>());
+		for (int j = 0; j < config.getColunas(); j++) {
+			grelha[i].push_back(Celula(config.map[i][j]));
+		} 
 	}
 }
 

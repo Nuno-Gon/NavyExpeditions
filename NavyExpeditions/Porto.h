@@ -6,6 +6,7 @@
 #include <vector>
 #include "Navio.h"
 #include "Posicao.h"
+#include "Terreno.h"
 
 using namespace std;
 

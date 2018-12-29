@@ -3,5 +3,7 @@ class Terreno{
 public:
 	Terreno();
 	~Terreno();
+private:
+	char img;
 };
 
