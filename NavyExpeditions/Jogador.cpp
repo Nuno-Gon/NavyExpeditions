@@ -12,28 +12,23 @@ Jogador::Jogador() {}
 void Jogador::setVeleiro(Veleiro v) {
 	navios.push_back(v);
 }
-
 void Jogador::setEscuna(Escuna e) {
 	navios.push_back(e);
 }
-
 void Jogador::setFragata(Fragata f) {
 	navios.push_back(f);
 }
-
 void Jogador::setGaleao(Galeao g) {
 	navios.push_back(g);
 }
-
 vector<Navio> Jogador::getVectorNavios() {
 	return navios;
 }
-
 void Jogador::moveNavios() {
 	int a, b, x = 0, z = 0;
 	auto i = navios;
 
-	for (auto k = 0; k < i.size(); k++) {
+	for (unsigned int k = 0; k < i.size(); k++) {
 		srand((unsigned int)time(NULL));
 		int r = rand() % 100;
 		cout << "r" << r << endl;
@@ -66,6 +61,41 @@ void Jogador::moveNavios() {
 			cout << "2" << a << b << endl;
 			cin.get();
 		//}
+	}
+}
+
+void Jogador::compraNav(string cmd) {
+	if (cmd == "v") {
+		Veleiro v;
+		v.setX(2); //criar navio no porto principal
+		v.setY(10); //ir buscar o primeiro porto do vetor de portos
+		setVeleiro(v);
+		cout << "Comprou um navio do tipo Veleiro" << endl;
+	}
+	else if (cmd == "e") {
+		Escuna e;
+		e.setX(2);
+		e.setY(10);
+		setEscuna(e);
+		cout << "Comprou um navio do tipo Escuna" << endl;
+	}
+	else if (cmd == "g") {
+		Galeao g;
+		g.setX(2);
+		g.setY(10);
+		setGaleao(g);
+		cout << "Comprou um navio do tipo Galeao" << endl;
+	}
+	else if (cmd == "f") {
+		Fragata f;
+		f.setX(2);
+		f.setY(10);
+		setFragata(f);
+		cout << "Comprou um navio do tipo Fragata" << endl;
+	}
+	else {
+		cout << "Tipo de navio inexistente!" << endl;
+		return;
 	}
 }
 

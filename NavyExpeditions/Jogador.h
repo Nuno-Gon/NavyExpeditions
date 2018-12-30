@@ -22,6 +22,7 @@ public:
 	void setFragata(Fragata f);
 	void setGaleao(Galeao g);
 	void moveNavios();
+	void compraNav(string cmd);
 	vector<Navio> getVectorNavios();
 	
 	~Jogador();
@@ -30,5 +31,5 @@ private:
 
 	int money;
 	vector<Navio> navios;
-	//vector<Porto> portos;
+//	vector<Porto> portos;
 };

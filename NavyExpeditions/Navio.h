@@ -9,18 +9,6 @@
 using namespace std;
 
 class Navio : public Posicao {
-private:
-	static int numNavios;
-	int id;
-	int soldados;
-	int peixe;
-	int mercadoria;
-	int agua;
-	int quantidade_v;
-	int quantidade_g;
-	int quantidade_e;
-	int quantidade_f;
-
 public:
 	Navio(int, int, int, int, char);
 	
@@ -43,4 +31,16 @@ public:
 	void setQuantidade_f(int f);
 
 	~Navio();
+
+private:
+	static int numNavios;
+	int id;
+	int soldados;
+	int peixe;
+	int mercadoria;
+	int agua;
+	int quantidade_v;
+	int quantidade_g;
+	int quantidade_e;
+	int quantidade_f;
 };

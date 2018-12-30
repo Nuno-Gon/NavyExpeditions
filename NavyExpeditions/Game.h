@@ -27,6 +27,7 @@ public:
 private:
 	Configuration config;
 	Jogador jog;
+//	Pirata pir;
 	
 };
 

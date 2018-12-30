@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="Celula.h" />
     <ClInclude Include="Configuration.h" />
+    <ClInclude Include="Consola.h" />
     <ClInclude Include="Escuna.h" />
     <ClInclude Include="Fragata.h" />
     <ClInclude Include="Galeao.h" />
@@ -164,6 +165,7 @@
   <ItemGroup>
     <ClCompile Include="Celula.cpp" />
     <ClCompile Include="Configuration.cpp" />
+    <ClCompile Include="Consola.cpp" />
     <ClCompile Include="Escuna.cpp" />
     <ClCompile Include="Fragata.cpp" />
     <ClCompile Include="Galeao.cpp" />

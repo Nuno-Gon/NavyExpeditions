@@ -18,13 +18,18 @@ public:
 
 	Celula(char ch);
 
-	friend ostream& operator<<(ostream& os, const vector<vector<Celula>>& g) {
+	/*friend ostream& operator<<(ostream& os, const vector<vector<Celula>>& g) {
 		for (unsigned int i = 0; i < g.size(); i++) {
-			cout << endl;
 			for (unsigned int j = 0; j < g[i].size(); j++) {
 				cout << g[i][j].img;
 			}
+			cout << endl;
 		}
+		return os;
+	}*/
+
+	friend ostream& operator<<(ostream& os, const Celula& g) {
+		cout << g.img;
 		return os;
 	}
 
