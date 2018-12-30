@@ -64,29 +64,29 @@ void Jogador::moveNavios() {
 	}
 }
 
-void Jogador::compraNav(string cmd) {
-	if (cmd == "v") {
+void Jogador::compraNav(string tipo) {
+	if (tipo == "v") {
 		Veleiro v;
 		v.setX(2); //criar navio no porto principal
-		v.setY(10); //ir buscar o primeiro porto do vetor de portos
+		v.setY(10); //ir buscar o primeiro porto do vetor de portos, ou seja o primeiro, principal?
 		setVeleiro(v);
 		cout << "Comprou um navio do tipo Veleiro" << endl;
 	}
-	else if (cmd == "e") {
+	else if (tipo == "e") {
 		Escuna e;
 		e.setX(2);
 		e.setY(10);
 		setEscuna(e);
 		cout << "Comprou um navio do tipo Escuna" << endl;
 	}
-	else if (cmd == "g") {
+	else if (tipo == "g") {
 		Galeao g;
 		g.setX(2);
 		g.setY(10);
 		setGaleao(g);
 		cout << "Comprou um navio do tipo Galeao" << endl;
 	}
-	else if (cmd == "f") {
+	else if (tipo == "f") {
 		Fragata f;
 		f.setX(2);
 		f.setY(10);

@@ -23,13 +23,11 @@ void Game::run() {
 	do {
 		Consola::clrscr();
 		displayMap(); //Aparecer 2x2 com cores
+		displayShips();
 		Consola::setBackgroundColor(Consola::PRETO);
 		displayMenuTwo();
-
-		jog.moveNavios(); //Tem que ser dos navios
-		setShipsMap();
-
 		
+		Consola::gotoxy(0, 21);
 		system("pause");
 	} while (val != true);
 }
@@ -102,18 +100,22 @@ void Game::displayMenuTwo() {
 	
 	resolveCommand(comando);
 }
-void Game::setShipsMap() {
+void Game::displayShips() {
 	int x, y;
 	char c;
 	auto i = jog.getVectorNavios();
+
 	for (unsigned int j = 0; j < jog.getVectorNavios().size(); j++) {
 		x = i[j].getX();
 		y = i[j].getY();
 		c = i[j].getIcon();
 
-		config.map[x][y] = c;
+		Consola::gotoxy(x, y);
+		cout << c;
 	}
 }
+
+
 void Game::resolveCommand(string comando) {
 	string cmd;
 	istringstream iss(comando);
@@ -220,6 +222,4 @@ void Game::setGrelha() {
 	}
 }
 
-Game::~Game()
-{
-}
+Game::~Game(){}

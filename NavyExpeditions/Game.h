@@ -20,14 +20,14 @@ public:
 	void getFileCommands(string fich);
 	void run();
 	void displayMap();
-	void setShipsMap();
+	void displayShips();
 	void setGrelha();
 	~Game();
-	vector <vector <Celula>> grelha;
+	
 private:
 	Configuration config;
 	Jogador jog;
 //	Pirata pir;
-	
+	vector <vector <Celula>> grelha;
 };
 

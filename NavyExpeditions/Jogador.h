@@ -22,7 +22,7 @@ public:
 	void setFragata(Fragata f);
 	void setGaleao(Galeao g);
 	void moveNavios();
-	void compraNav(string cmd);
+	void compraNav(string tipo);
 	vector<Navio> getVectorNavios();
 	
 	~Jogador();
