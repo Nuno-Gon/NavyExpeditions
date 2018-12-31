@@ -21,7 +21,12 @@ public:
 	void run();
 	void displayMap();
 	void displayShips();
+	void displayLista();
 	void setGrelha();
+
+	void save(string nome);
+	void load(string nome);
+	void del(string nome);
 	~Game();
 	
 private:

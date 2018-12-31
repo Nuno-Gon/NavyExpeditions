@@ -21,16 +21,40 @@ void Game::run() {
 	setGrelha();
 
 	do {
+		//Fases
+		//Comandos:
 		Consola::clrscr();
 		displayMap(); //Aparecer 2x2 com cores
 		displayShips();
 		Consola::setBackgroundColor(Consola::PRETO);
+
+		//Execucao de comandos pendentes / comportamento auto:
 		displayMenuTwo();
-		
 		Consola::gotoxy(0, 21);
 		system("pause");
+
+		//Combates:
+
+		//Eventos:
+
+		//Piratas:
+
 	} while (val != true);
 }
+void Game::setGrelha() {
+	/*passar o mapa de um Vetor de Strings (primeira meta)
+	* para um vetor 2D de Celulas
+	* cada Celula têm um Ponteiro *t para o tipo
+	* de Terreno -> (Mar,Terra,Porto)
+	*/
+	for (int i = 0; i < config.getLinhas(); i++) {
+		grelha.push_back(vector<Celula>());
+		for (int j = 0; j < config.getColunas(); j++) {
+			grelha[i].push_back(Celula(config.map[i][j]));
+		}
+	}
+}
+
 void Game::displayMap() {
 	int x = 1, y = 1, change = 0;
 
@@ -47,6 +71,30 @@ void Game::displayMap() {
 		cout << endl;
 	}
 }
+void Game::displayShips() {
+	int x, y;
+	char c;
+	auto i = jog.getVectorNavios();
+
+	for (unsigned int j = 0; j < jog.getVectorNavios().size(); j++) {
+		x = i[j].getX();
+		y = i[j].getY();
+		c = i[j].getIcon();
+
+		Consola::gotoxy(x, y);
+		cout << c;
+	}
+}
+void Game::displayLista() {
+//	Consola::gotoxy(45, 0);
+	cout << endl;
+	cout << "--- Lista de Precos --- " << endl;
+	cout << "Comprar 1 navio - 100 moedas" << endl;
+	cout << "Comprar soldados 1 - 1 moeda" << endl; // receber valor da quantidade de soldados
+	cout << "Comprar Mercadoria - X" << endl;
+	//lista varia valor entre portos?
+}
+
 void Game::displayMenuTwo() {
 	string comando;
 	//system("cls");
@@ -97,25 +145,9 @@ void Game::displayMenuTwo() {
 	Consola::gotoxy(45, 21);
 	cout << "Comando: ";
 	getline(cin, comando);
-	
+
 	resolveCommand(comando);
 }
-void Game::displayShips() {
-	int x, y;
-	char c;
-	auto i = jog.getVectorNavios();
-
-	for (unsigned int j = 0; j < jog.getVectorNavios().size(); j++) {
-		x = i[j].getX();
-		y = i[j].getY();
-		c = i[j].getIcon();
-
-		Consola::gotoxy(x, y);
-		cout << c;
-	}
-}
-
-
 void Game::resolveCommand(string comando) {
 	string cmd;
 	istringstream iss(comando);
@@ -127,7 +159,9 @@ void Game::resolveCommand(string comando) {
 		getFileCommands(cmd);
 	}
 	else if (cmd == "prox") {
-		//...
+		//... gravar os comandos numa string e só depois executar
+		// ou fazer um do{ displaymenuTwo }whilte(prox) e depois correr os comandos
+		// dunno...
 	}
 	else if (cmd == "compranav") { 
 			iss >> cmd; // fica com o tipo de navio a ser comprado
@@ -137,7 +171,7 @@ void Game::resolveCommand(string comando) {
 		iss >> cmd; //<N>
 	}
 	else if (cmd == "lista") {
-
+		displayLista();
 	} 
 	else if (cmd == "compra") {
 		iss >> cmd; //<N><M>
@@ -175,6 +209,7 @@ void Game::resolveCommand(string comando) {
 	}
 	else if (cmd == "saveg") {
 		iss >> cmd; //<nome>
+		save(cmd);
 	}
 	else if (cmd == "loadg") {
 		iss >> cmd; //<nome>
@@ -208,18 +243,29 @@ void Game::getFileCommands(string fich) {
 		}
 	}
 }
-void Game::setGrelha() {
-	/*passar o mapa de um Vetor de Strings (primeira meta)
-	* para um vetor 2D de Celulas
-	* cada Celula têm um Ponteiro *t para o tipo
-	* de Terreno -> (Mar,Terra,Porto)
-	*/
-	for (int i = 0; i < config.getLinhas(); i++) {
-		grelha.push_back(vector<Celula>());
-		for (int j = 0; j < config.getColunas(); j++) {
-			grelha[i].push_back(Celula(config.map[i][j]));
-		} 
-	}
+
+void Game::save(string nome) {
+	//Precisa de construtor por copia, mas depois como o vetor 2d de Celulas têm ponteiros têm que se criar algo para copiar lá, still searching
+	
+	/*There are 2 types of copying: copy constructor when you create object on a non initialized space and copy operator where you need to release the old state of the object before setting new state.*/
+	
+	ofstream file_obj;
+	file_obj.open(nome, ios::app);
+//https://stackoverflow.com/questions/12902751/how-to-clone-object-in-c-or-is-there-another-solution
+	//Game *g = this;
+	/*g.config = this->config;
+	g.jog = this->jog;
+	g.grelha = this->grelha;*/
+	//file_obj.write((char*)&g, sizeof(g));
+	file_obj.close();
 }
+/* Game::load(string nome) {
+	ifstream file_obj;
+	file_obj.open(nome, ios::in);
+	Game game;
+	file_obj.read((char*)&game, sizeof(game));
+}
+
+void Game::del(string nome) {}*/
 
 Game::~Game(){}
