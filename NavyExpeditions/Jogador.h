@@ -28,6 +28,7 @@ public:
 	void compraNav(string tipo);
 	vector<Navio> getVectorNavios();
 	vector<Porto> getVectorPortos();
+	void verifcaEscuna();
 	
 	~Jogador();
 

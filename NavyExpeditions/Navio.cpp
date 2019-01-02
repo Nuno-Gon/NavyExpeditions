@@ -151,7 +151,7 @@ void Navio::setMercadorias(int m) {
 		cout << "Nao e possivel adicionar mercadoria a uma fragata!";
 	}
 	else if (this->getIcon() == 'i') {
-		if (this->mercadoria + m > 500) {
+		if (this->mercadoria + m > 100) {
 			cout << "Nao e possivel adicionar tanta mercadoria ao iate (max 500, atualmente " << this->mercadoria << ")";
 		}
 		else if (this->mercadoria + m < 0) {
