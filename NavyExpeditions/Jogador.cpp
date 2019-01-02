@@ -116,7 +116,7 @@ void Jogador::compraNav(string tipo) {
 }
 
 void Jogador::verifcaEscuna() {
-	for (int i = 0; i < navios.size; i++) {
+	for (int i = 0; i < navios.size(); i++) {
 		if (navios[i].getIcon() == 'v' || navios[i].getIcon() == 'g' || navios[i].getIcon() == 'i') {
 			for (int j = 0; j < navios.size(); j++) {
 				if ((navios[i].getX() == navios[j].getX() - 1 || navios[i].getX() == navios[j].getX() || navios[i].getX() == navios[j].getX() + 1)
