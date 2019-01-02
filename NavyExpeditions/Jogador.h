@@ -31,5 +31,5 @@ private:
 
 	int money;
 	vector<Navio> navios;
-//	vector<Porto> portos;
+	vector<Porto> portos;
 };

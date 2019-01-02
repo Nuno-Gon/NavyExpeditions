@@ -154,6 +154,7 @@
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Mar.h" />
     <ClInclude Include="Navio.h" />
+    <ClInclude Include="Pirata.h" />
     <ClInclude Include="Porto.h" />
     <ClInclude Include="Posicao.h" />
     <ClInclude Include="stdafx.h" />
@@ -175,6 +176,7 @@
     <ClCompile Include="Mar.cpp" />
     <ClCompile Include="Navio.cpp" />
     <ClCompile Include="NavyExpeditions.cpp" />
+    <ClCompile Include="Pirata.cpp" />
     <ClCompile Include="Porto.cpp" />
     <ClCompile Include="Posicao.cpp" />
     <ClCompile Include="stdafx.cpp">
