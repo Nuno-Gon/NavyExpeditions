@@ -13,8 +13,8 @@ Celula::Celula(char ch){
 		t = new Mar();
 	else if (ch == '+')
 		t = new Terra();
-	else
-		t = new Porto();
+	/*else
+		t = new Porto();*/
 };
 
 char Celula::getImg() {

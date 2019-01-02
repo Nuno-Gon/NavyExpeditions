@@ -5,7 +5,6 @@
 #include <fstream>
 #include <vector>
 #include "Configuration.h" 
-#include "Porto.h"
 #include "Jogador.h"
 #include "Celula.h"
 #include "Pirata.h"

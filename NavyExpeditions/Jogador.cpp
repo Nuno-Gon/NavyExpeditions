@@ -27,12 +27,12 @@ void Jogador::setIate(Iate i) {
 vector<Navio> Jogador::getVectorNavios() {
 	return navios;
 }
-/*void Jogador::setPorto() {
-	portos.push_back();
+void Jogador::setPorto(Porto p) {
+	portos.push_back(p);
 }
 vector<Porto> Jogador::getVectorPortos() {
 	return portos;
-}*/
+}
 void Jogador::moveNavios() {
 	int a, b, x = 0, z = 0;
 	auto i = navios;

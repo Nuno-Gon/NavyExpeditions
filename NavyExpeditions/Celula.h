@@ -35,7 +35,6 @@ public:
 	}
 
 	~Celula();
-
 private:
 	Terreno * t;
 	char img;

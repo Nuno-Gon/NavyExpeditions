@@ -9,6 +9,7 @@
 #include "Fragata.h"
 #include "Galeao.h"
 #include "Iate.h"
+#include "Porto.h"
 
 using namespace std;
 
@@ -22,11 +23,11 @@ public:
 	void setFragata(Fragata f);
 	void setGaleao(Galeao g);
 	void setIate(Iate i);
-//	void setPorto();
+	void setPorto(Porto p);
 	void moveNavios();
 	void compraNav(string tipo);
 	vector<Navio> getVectorNavios();
-//	vector<Porto> getVectorPortos();
+	vector<Porto> getVectorPortos();
 	
 	~Jogador();
 
@@ -34,5 +35,5 @@ private:
 
 	int money;
 	vector<Navio> navios;
-//	vector<Porto> portos;
+	vector<Porto> portos;
 };

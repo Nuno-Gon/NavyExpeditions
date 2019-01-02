@@ -61,9 +61,9 @@ void Game::setPortos() {
 		for (unsigned int j = 0; j < grelha[i].size(); j++) {
 			c = grelha[i][j].getImg();
 			if (isupper(c))
-				cout << "Porto do Jogador" << endl;
+				jog.setPorto(Porto(i, j));
 			else if (islower(c))
-				cout << "Porto do Pirata" << endl;
+				pir.setPorto(Porto(i, j));
 		}
 	}
 }
