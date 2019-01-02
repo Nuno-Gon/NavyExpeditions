@@ -61,15 +61,85 @@ void Game::displayMap() {
 	for (unsigned int i = 0; i < grelha.size(); i++) {
 		for (unsigned int j = 0; j < grelha[i].size(); j++) {
 			Consola::gotoxy(x, y);
-			//BACKGROUND COLORS AO XADREZ
-
-			cout << grelha[i][j];
-			x += 2;
+			if (i % 2 != 0) {
+				if (j % 2 != 0) {
+					Consola::setBackgroundColor(Consola::AMARELO_CLARO);
+					Consola::gotoxy(x + 1, y);
+					cout << " ";
+					Consola::setBackgroundColor(Consola::AMARELO_CLARO);
+					Consola::gotoxy(x + 1, y + 1);
+					cout << " ";
+					Consola::setBackgroundColor(Consola::AMARELO_CLARO);
+					Consola::gotoxy(x, y + 1);
+					cout << " ";
+					Consola::setBackgroundColor(Consola::AMARELO_CLARO);
+					Consola::gotoxy(x, y);
+					cout << " ";
+					Consola::setTextColor(Consola::PRETO);
+					cout << grelha[i][j];
+					x += 2;
+				}
+				else {
+					Consola::setBackgroundColor(Consola::AZUL);
+					Consola::gotoxy(x + 1, y);
+					cout << " ";
+					Consola::setBackgroundColor(Consola::AZUL);
+					Consola::gotoxy(x + 1, y + 1);
+					cout << " ";
+					Consola::setBackgroundColor(Consola::AZUL);
+					Consola::gotoxy(x, y + 1);
+					cout << " ";
+					Consola::setBackgroundColor(Consola::AZUL);
+					Consola::gotoxy(x, y);
+					cout << " ";
+					Consola::setTextColor(Consola::BRANCO);
+					cout << grelha[i][j];
+					x += 2;
+				}
+			}
+			else {
+				if (j % 2 == 0) {
+					Consola::setBackgroundColor(Consola::AMARELO_CLARO);
+					Consola::gotoxy(x + 1, y);
+					cout << " ";
+					Consola::setBackgroundColor(Consola::AMARELO_CLARO);
+					Consola::gotoxy(x + 1, y + 1);
+					cout << " ";
+					Consola::setBackgroundColor(Consola::AMARELO_CLARO);
+					Consola::gotoxy(x, y + 1);
+					cout << " ";
+					Consola::setBackgroundColor(Consola::AMARELO_CLARO);
+					Consola::gotoxy(x, y);
+					cout << " ";
+					Consola::setTextColor(Consola::PRETO);
+					cout << grelha[i][j];
+					x += 2;
+				}
+				else {
+					Consola::setBackgroundColor(Consola::AZUL);
+					Consola::gotoxy(x + 1, y);
+					cout << " ";
+					Consola::setBackgroundColor(Consola::AZUL);
+					Consola::gotoxy(x + 1, y + 1);
+					cout << " ";
+					Consola::setBackgroundColor(Consola::AZUL);
+					Consola::gotoxy(x, y + 1);
+					cout << " ";
+					Consola::setBackgroundColor(Consola::AZUL);
+					Consola::gotoxy(x, y);
+					cout << " ";
+					Consola::setTextColor(Consola::BRANCO);
+					cout << grelha[i][j];
+					x += 2;
+				}
+			}
 		}
 		x = 1;
 		y += 2;
 		cout << endl;
 	}
+
+	Consola::setTextColor(Consola::BRANCO);
 }
 void Game::displayShips() {
 	int x, y;
@@ -77,12 +147,14 @@ void Game::displayShips() {
 	auto i = jog.getVectorNavios();
 
 	for (unsigned int j = 0; j < jog.getVectorNavios().size(); j++) {
-		x = i[j].getX();
-		y = i[j].getY();
+		x = (i[j].getY() * 2) + 2;
+		y = (i[j].getX() * 2) + 1;
 		c = i[j].getIcon();
 
 		Consola::gotoxy(x, y);
+		Consola::setTextColor(Consola::VERDE);
 		cout << c;
+		Consola::setTextColor(Consola::BRANCO);
 	}
 }
 void Game::displayLista() {
