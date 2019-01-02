@@ -21,6 +21,7 @@ public:
 	void setEscuna(Escuna e);
 	void setFragata(Fragata f);
 	void setGaleao(Galeao g);
+	void setIate(Iate i);
 	void moveNavios();
 	void compraNav(string tipo);
 	vector<Navio> getVectorNavios();

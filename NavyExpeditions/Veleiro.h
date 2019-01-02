@@ -10,9 +10,5 @@ class Veleiro : public Navio {
 
 public:
 	Veleiro();
-
-	int getSoldado() {
-		return this->getSoldados();
-	}
 	~Veleiro();
 };

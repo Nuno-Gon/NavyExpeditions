@@ -21,6 +21,9 @@ void Jogador::setFragata(Fragata f) {
 void Jogador::setGaleao(Galeao g) {
 	navios.push_back(g);
 }
+void Jogador::setIate(Iate i) {
+	navios.push_back(i);
+}
 vector<Navio> Jogador::getVectorNavios() {
 	return navios;
 }
@@ -91,6 +94,13 @@ void Jogador::compraNav(string tipo) {
 		f.setX(2);
 		f.setY(10);
 		setFragata(f);
+		cout << "Comprou um navio do tipo Fragata" << endl;
+	}
+	else if (tipo == "i") {
+		Fragata f;
+		f.setX(2);
+		f.setY(10);
+		setIate(i);
 		cout << "Comprou um navio do tipo Fragata" << endl;
 	}
 	else {
