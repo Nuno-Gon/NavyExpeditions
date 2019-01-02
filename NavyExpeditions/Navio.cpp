@@ -9,6 +9,7 @@ Navio::Navio(int s, int m, int a, char t) {
 	this->soldados = s;
 	this->mercadoria = m;
 	this->agua = a;
+	this->deriva = false;
 	if (t == 'v') {
 		this->setIcon('v');
 	}
@@ -42,6 +43,10 @@ int Navio::getMercadoria() {
 	return this->mercadoria;
 }
 
+bool Navio::getDeriva() {
+	return this->deriva;
+}
+
 void Navio::setId(int id) {
 	this->id = id;
 }
@@ -50,8 +55,9 @@ void Navio::setSoldados(int s) {
 		if (this->soldados + s > 20) {
 			cout << "Nao e possivel adicionar tantos soldados ao veleiro (max 20, atualmente " << this->soldados << ")";
 		}
-		else if (this->soldados + s < 0) {
-			cout << "Nao e possivel retirar soldados que nao existem";
+		else if (this->soldados + s <= 0) {
+			this->soldados = 0;
+			this->deriva = true;
 		}
 		else {
 			this->soldados = this->soldados + s;
@@ -62,7 +68,8 @@ void Navio::setSoldados(int s) {
 			cout << "Nao e possivel adicionar tantos soldados ao galeao (max 20, atualmente " << this->soldados << ")";
 		}
 		else if (this->soldados + s < 0) {
-			cout << "Nao e possivel retirar soldados que nao existem";
+			this->soldados = 0;
+			this->deriva = true;
 		}
 		else {
 			this->soldados = this->soldados + s;
@@ -70,7 +77,8 @@ void Navio::setSoldados(int s) {
 	}
 	else if (this->getIcon() == 'e') {
 		if (this->soldados + s > 10) {
-			cout << "Nao e possivel adicionar tantos soldados a escuna (max 10, atualmente " << this->soldados << ")";
+			this->soldados = 0;
+			this->deriva = true;
 		}
 		else if (this->soldados + s < 0) {
 			cout << "Nao e possivel retirar soldados que nao existem";
@@ -83,8 +91,9 @@ void Navio::setSoldados(int s) {
 		if (this->soldados + s > 50) {
 			cout << "Nao e possivel adicionar tantos soldados a fragata (max 50, atualmente " << this->soldados << ")";
 		}
-		else if (this->soldados + s < 0) {
-			cout << "Nao e possivel retirar soldados que nao existem";
+		else if (this->soldados + s <= 0) {
+			this->soldados = 0;
+			this->deriva = true;
 		}
 		else {
 			this->soldados = this->soldados + s;
@@ -95,7 +104,8 @@ void Navio::setSoldados(int s) {
 			cout << "Nao e possivel adicionar tantos soldados ao iate (max 100, atualmente " << this->soldados << ")";
 		}
 		else if (this->soldados + s < 0) {
-			cout << "Nao e possivel retirar soldados que nao existem";
+			this->soldados = 0;
+			this->deriva = true;
 		}
 		else {
 			this->soldados = this->soldados + s;
@@ -153,7 +163,70 @@ void Navio::setMercadorias(int m) {
 	}
 }
 void Navio::setAgua(int a) {
-	this->agua = this->agua + a;
+	if (this->getIcon() == 'v') {
+		if (this->agua + a > 200) {
+			this->agua = 200;
+		}
+		else if (this->agua + a <= 0) {
+			this->agua = 0;
+			this->soldados = this->soldados - 1;
+		}
+		else {
+			this->agua = this->agua + a;
+		}
+	}
+	else if (this->getIcon() == 'g') {
+		if (this->agua + a > 400) {
+			this->agua = 200;
+		}
+		else if (this->agua + a <= 0) {
+			this->agua = 0;
+			this->soldados = this->soldados - 1;
+		}
+		else {
+			this->agua = this->agua + a;
+		}
+	}
+	else if (this->getIcon() == 'e') {
+		if (this->agua + a > 100) {
+			this->agua = 100;
+		}
+		else if (this->agua + a <= 0) {
+			this->agua = 0;
+			this->soldados = this->soldados - 1;
+		}
+		else {
+			this->agua = this->agua + a;
+		}
+	}
+	else if (this->getIcon() == 'f') {
+		if (this->agua + a > 500) {
+			this->agua = 500;
+		}
+		else if (this->agua + a <= 0) {
+			this->agua = 0;
+			this->soldados = this->soldados - 1;
+		}
+		else {
+			this->agua = this->agua + a;
+		}
+	}
+	else if (this->getIcon() == 'i') {
+		if (this->agua + a > 1000) {
+			this->agua = 1000;
+		}
+		else if (this->agua + a <= 0) {
+			this->agua = 0;
+			this->soldados = this->soldados - 1;
+		}
+		else {
+			this->agua = this->agua + a;
+		}
+	}
+}
+
+void Navio::setDeriva(bool d) {
+	this->deriva = d;
 }
 
 Navio::~Navio()

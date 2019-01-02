@@ -16,11 +16,13 @@ public:
 	int getSoldados();
 	int getMercadoria();
 	int getAgua();
+	bool getDeriva();
 
 	void setId(int id);
 	void setSoldados(int s);
 	void setMercadorias(int m);
 	void setAgua(int a);
+	void setDeriva(bool d);
 
 	~Navio();
 
@@ -30,8 +32,5 @@ private:
 	int soldados;
 	int mercadoria;
 	int agua;
-	int quantidade_v;
-	int quantidade_g;
-	int quantidade_e;
-	int quantidade_f;
+	bool deriva;
 };
