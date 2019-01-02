@@ -19,6 +19,7 @@ void Game::run() {
 	string comando;
 	bool val = false;
 	setGrelha();
+	//setPortos();
 
 	do {
 		//Fases
@@ -27,7 +28,7 @@ void Game::run() {
 		displayMap(); //Aparecer 2x2 com cores
 		displayShips();
 		Consola::setBackgroundColor(Consola::PRETO);
-
+		
 		//Execucao de comandos pendentes / comportamento auto:
 		displayMenuTwo();
 		Consola::gotoxy(0, 21);
@@ -54,7 +55,18 @@ void Game::setGrelha() {
 		}
 	}
 }
-
+void Game::setPortos() {
+	char c;
+	for (unsigned int i = 0; i < grelha.size(); i++) {
+		for (unsigned int j = 0; j < grelha[i].size(); j++) {
+			c = grelha[i][j].getImg();
+			if (isupper(c))
+				cout << "Porto do Jogador" << endl;
+			else if (islower(c))
+				cout << "Porto do Pirata" << endl;
+		}
+	}
+}
 void Game::displayMap() {
 	int x = 1, y = 1, change = 0;
 

@@ -17,6 +17,10 @@ Celula::Celula(char ch){
 		t = new Porto();
 };
 
+char Celula::getImg() {
+	return this->img;
+}
+
 Celula::~Celula()
 {
 }

@@ -7,6 +7,7 @@
 #include "Navio.h"
 
 class Iate : public Navio {
+public:
 	Iate();
 
 	~Iate();

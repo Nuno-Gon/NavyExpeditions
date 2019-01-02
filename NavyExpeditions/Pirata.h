@@ -1,6 +1,6 @@
 #pragma once
-class Pirata
-{
+#include "Jogador.h"
+class Pirata : public Jogador{
 public:
 	Pirata();
 	~Pirata();

@@ -11,13 +11,12 @@
 
 using namespace std;
 
-class Celula
-{
+class Celula{
 public:
 	Celula();
 
 	Celula(char ch);
-
+	char getImg();
 	/*friend ostream& operator<<(ostream& os, const vector<vector<Celula>>& g) {
 		for (unsigned int i = 0; i < g.size(); i++) {
 			for (unsigned int j = 0; j < g[i].size(); j++) {
@@ -27,6 +26,8 @@ public:
 		}
 		return os;
 	}*/
+
+
 
 	friend ostream& operator<<(ostream& os, const Celula& g) {
 		cout << g.img;

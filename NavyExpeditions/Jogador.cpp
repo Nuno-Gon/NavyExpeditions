@@ -27,6 +27,12 @@ void Jogador::setIate(Iate i) {
 vector<Navio> Jogador::getVectorNavios() {
 	return navios;
 }
+/*void Jogador::setPorto() {
+	portos.push_back();
+}
+vector<Porto> Jogador::getVectorPortos() {
+	return portos;
+}*/
 void Jogador::moveNavios() {
 	int a, b, x = 0, z = 0;
 	auto i = navios;
@@ -97,9 +103,9 @@ void Jogador::compraNav(string tipo) {
 		cout << "Comprou um navio do tipo Fragata" << endl;
 	}
 	else if (tipo == "i") {
-		Fragata f;
-		f.setX(2);
-		f.setY(10);
+		Iate i;
+		i.setX(2);
+		i.setY(10);
 		setIate(i);
 		cout << "Comprou um navio do tipo Fragata" << endl;
 	}

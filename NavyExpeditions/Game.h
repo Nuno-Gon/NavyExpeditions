@@ -8,6 +8,7 @@
 #include "Porto.h"
 #include "Jogador.h"
 #include "Celula.h"
+#include "Pirata.h"
 
 using namespace std;
 
@@ -23,7 +24,7 @@ public:
 	void displayShips();
 	void displayLista();
 	void setGrelha();
-
+	void setPortos();
 	void save(string nome);
 	void load(string nome);
 	void del(string nome);
@@ -32,7 +33,6 @@ public:
 private:
 	Configuration config;
 	Jogador jog;
-//	Pirata pir;
+	Pirata pir;
 	vector <vector <Celula>> grelha;
 };
-
