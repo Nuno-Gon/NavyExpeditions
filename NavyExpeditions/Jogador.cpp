@@ -204,4 +204,43 @@ void Jogador::vendeMercadorias(int id, int precoM, int precoP) {
 	}
 }
 
+void Jogador::vendeNavio(char tipo, int precoM, int precoP, int precoN) {
+	bool done = false;
+	for (unsigned int i = 0; i < navios.size(); i++) {
+		if (navios[i].getIcon() == tipo) {
+			for (unsigned int j = 0; j < portos.size(); j++) {
+				if (navios[i].getX() == portos[j].getX() && navios[i].getY() == portos[j].getY()) {
+					setMoney(navios[i].getMercadoria() * precoM);
+					setMoney(navios[i].getPeixe() * precoP);
+					setMoney(precoN);
+					navios.erase(navios.begin() + i);
+					done = true;
+				}
+			}
+			if (!done) {
+				cout << "O navio escolhido nao esta num porto";
+			}
+		}
+	}
+}
+
+void Jogador::compraSoldados(int id, int quantidade, int preco) {
+	bool done = false;
+	for (unsigned int i = 0; i < navios.size(); i++) {
+		if (navios[i].getId() == id) {
+			for (unsigned int j = 0; j < portos.size(); j++) {
+				if (navios[i].getX() == portos[j].getX() && navios[i].getY() == portos[j].getY()) {
+					if (navios[i].setSoldados(quantidade)) {
+						setMoney(-(quantidade * preco));
+					}
+					done = true;
+				}
+			}
+			if (!done) {
+				cout << "O navio escolhido nao esta num porto";
+			}
+		}
+	}
+}
+
 Jogador::~Jogador(){}

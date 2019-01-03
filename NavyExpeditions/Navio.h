@@ -20,9 +20,9 @@ public:
 	bool getDeriva();
 
 	void setId(int id);
-	void setSoldados(int s);
+	bool setSoldados(int s);
 	bool setMercadorias(int m);
-	void setPeixe(int p);
+	bool setPeixe(int p);
 	void setAgua(int a);
 	void setDeriva(bool d);
 

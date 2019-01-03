@@ -55,7 +55,7 @@ bool Navio::getDeriva() {
 void Navio::setId(int id) {
 	this->id = id;
 }
-void Navio::setSoldados(int s) {
+bool Navio::setSoldados(int s) {
 	if (this->getIcon() == 'v') {
 		if (this->soldados + s > 20) {
 			cout << "Nao e possivel adicionar tantos soldados ao veleiro (max 20, atualmente " << this->soldados << ")";
@@ -66,6 +66,7 @@ void Navio::setSoldados(int s) {
 		}
 		else {
 			this->soldados = this->soldados + s;
+			return true;
 		}
 	}
 	else if (this->getIcon() == 'g') {
@@ -78,6 +79,7 @@ void Navio::setSoldados(int s) {
 		}
 		else {
 			this->soldados = this->soldados + s;
+			return true;
 		}
 	}
 	else if (this->getIcon() == 'e') {
@@ -90,6 +92,7 @@ void Navio::setSoldados(int s) {
 		}
 		else {
 			this->soldados = this->soldados + s;
+			return true;
 		}
 	}
 	else if (this->getIcon() == 'f') {
@@ -102,6 +105,7 @@ void Navio::setSoldados(int s) {
 		}
 		else {
 			this->soldados = this->soldados + s;
+			return true;
 		}
 	}
 	else if (this->getIcon() == 'i') {
@@ -114,8 +118,10 @@ void Navio::setSoldados(int s) {
 		}
 		else {
 			this->soldados = this->soldados + s;
+			return true;
 		}
 	}
+	return false;
 }
 
 bool Navio::setMercadorias(int m) {
@@ -186,7 +192,7 @@ bool Navio::setMercadorias(int m) {
 	return false;
 }
 
-void Navio::setPeixe(int p) {
+bool Navio::setPeixe(int p) {
 	if (this->getIcon() == 'v') {
 		if (this->mercadoria + this->peixe + p > 40) {
 			int total = this->mercadoria + this->peixe;
@@ -197,6 +203,7 @@ void Navio::setPeixe(int p) {
 		}
 		else {
 			this->peixe = this->peixe + p;
+			return true;
 		}
 	}
 	else if (this->getIcon() == 'g') {
@@ -209,6 +216,7 @@ void Navio::setPeixe(int p) {
 		}
 		else {
 			this->peixe = this->peixe + p;
+			return true;
 		}
 	}
 	else if (this->getIcon() == 'e') {
@@ -221,6 +229,7 @@ void Navio::setPeixe(int p) {
 		}
 		else {
 			this->peixe = this->peixe + p;
+			return true;
 		}
 	}
 	else if (this->getIcon() == 'f') {
@@ -236,8 +245,10 @@ void Navio::setPeixe(int p) {
 		}
 		else {
 			this->peixe = this->peixe + p;
+			return true;
 		}
 	}
+	return false;
 }
 
 void Navio::setAgua(int a) {

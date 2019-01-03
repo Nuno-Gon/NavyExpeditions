@@ -33,6 +33,8 @@ public:
 	void verifcaEscuna();
 	void compraMercadorias(int id, int quantidade, int preco);
 	void vendeMercadorias(int id, int precoM, int precoP);
+	void vendeNavio(char tipo, int, int, int);
+	void compraSoldados(int id, int quantidade, int preco);
 	
 	~Jogador();
 
