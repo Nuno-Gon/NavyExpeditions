@@ -264,7 +264,11 @@ void Game::resolveCommand(string comando) {
 		iss >> cmd; //<N>
 	}
 	else if (cmd == "move") {
-		iss >> cmd; //<N><X>
+		int n;
+		string x;//<N><X>
+		iss >> n;
+		iss >> x;
+		jog.moveNavios(n, x);
 	}
 	else if (cmd == "auto") {
 		iss >> cmd; //<N>

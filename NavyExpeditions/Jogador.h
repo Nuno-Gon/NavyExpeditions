@@ -26,7 +26,7 @@ public:
 	void setPorto(Porto p);
 	void setMoney(int m);
 	int getMoney();
-	void moveNavios();
+	void moveNavios(int n, string x);
 	void compraNav(string tipo);
 	vector<Navio> getVectorNavios();
 	vector<Porto> getVectorPortos();

@@ -40,43 +40,40 @@ void Jogador::setPorto(Porto p) {
 vector<Porto> Jogador::getVectorPortos() {
 	return portos;
 }
-void Jogador::moveNavios() {
-	int a, b, x = 0, z = 0;
-	auto i = navios;
-
-	for (unsigned int k = 0; k < i.size(); k++) {
-		srand((unsigned int)time(NULL));
-		int r = rand() % 100;
-		cout << "r" << r << endl;
-		if (r >= 0 && r < 25) {
-			x = 1;
-			z = 0;
+void Jogador::moveNavios(int n, string x) {
+	x[0] = toupper(x[0]);
+	x[1] = toupper(x[1]);
+	//converter a string x para UPPER CASE e meter em dir
+	for (unsigned int i = 0; i < navios.size(); i++) {
+		if (navios[i].getId() == n) {
+			if (x == "D")
+				navios[i].setY(navios[i].getY() + 1);
+			else if (x == "E")
+				navios[i].setY(navios[i].getY() - 1);
+			else if (x == "C")
+				navios[i].setX(navios[i].getX() - 1);
+			else if (x == "B")
+				navios[i].setX(navios[i].getX() + 1);
+			else if (x == "CE") {
+				navios[i].setX(navios[i].getX() - 1);
+				navios[i].setY(navios[i].getY() - 1);
+			}
+			else if (x == "CD") {
+				navios[i].setX(navios[i].getX() - 1);
+				navios[i].setY(navios[i].getY() + 1);
+			}
+			else if (x == "BE") {
+				navios[i].setX(navios[i].getX() + 1);
+				navios[i].setY(navios[i].getY() - 1);
+			}
+			else if (x == "BD") {
+				navios[i].setX(navios[i].getX() + 1);
+				navios[i].setY(navios[i].getY() + 1);
+			}
+			else
+				cout << "Comando movimento incorreto!" << endl;
 		}
-		else if (25 <= r && r < 50) {
-			x = -1;
-			z = 0;
-		}
-		else if (50 <= r && r < 75) {
-			x = 0;
-			z = 1;
-		}
-		else if (75 <= r && r < 100) {
-			x = 0;
-			z = -1;
-		}
-
-		cout << "xz" << x << z << endl;
 		cin.get();
-		a = i[k].getX() + x;
-		b = i[k].getY() + z;
-		/*if (config.map[a][b] == '+')
-			break;
-		else {*/
-			navios[k].setX(a);
-			navios[k].setY(b);
-			cout << "2" << a << b << endl;
-			cin.get();
-		//}
 	}
 }
 
