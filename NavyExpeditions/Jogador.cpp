@@ -134,45 +134,55 @@ void Jogador::moveNavios(int n, string x, vector <vector <Celula>>& grelha) {
 	}
 }
 
-void Jogador::compraNav(string tipo) {
-	if (tipo == "v") {
-		Veleiro v;
-		v.setX(portos[0].getX()); //criar navio no porto principal
-		v.setY(portos[0].getY()); //ir buscar o primeiro porto do vetor de portos, ou seja o principal
-		setVeleiro(v);
-		cout << "Comprou um navio do tipo Veleiro" << endl;
-	}
-	else if (tipo == "e") {
-		Escuna e;
-		e.setX(portos[0].getX());
-		e.setY(portos[0].getY());
-		setEscuna(e);
-		cout << "Comprou um navio do tipo Escuna" << endl;
-	}
-	else if (tipo == "g") {
-		Galeao g;
-		g.setX(portos[0].getX());
-		g.setY(portos[0].getY());
-		setGaleao(g);
-		cout << "Comprou um navio do tipo Galeao" << endl;
-	}
-	else if (tipo == "f") {
-		Fragata f;
-		f.setX(portos[0].getX());
-		f.setY(portos[0].getY());
-		setFragata(f);
-		cout << "Comprou um navio do tipo Fragata" << endl;
-	}
-	else if (tipo == "i") {
-		Iate i;
-		i.setX(portos[0].getX());
-		i.setY(portos[0].getY());
-		setIate(i);
-		cout << "Comprou um navio do tipo Iate" << endl;
+void Jogador::compraNav(string tipo, int preco) {
+	if (getMoney() - preco >= 0) {
+		if (tipo == "v") {
+			Veleiro v;
+			v.setX(portos[0].getX()); //criar navio no porto principal
+			v.setY(portos[0].getY()); //ir buscar o primeiro porto do vetor de portos, ou seja o principal
+			setVeleiro(v);
+			setMoney(-preco);
+			cout << "Comprou um navio do tipo Veleiro" << endl;
+		}
+		else if (tipo == "e") {
+			Escuna e;
+			e.setX(portos[0].getX());
+			e.setY(portos[0].getY());
+			setEscuna(e);
+			setMoney(-preco);
+			cout << "Comprou um navio do tipo Escuna" << endl;
+		}
+		else if (tipo == "g") {
+			Galeao g;
+			g.setX(portos[0].getX());
+			g.setY(portos[0].getY());
+			setGaleao(g);
+			setMoney(-preco);
+			cout << "Comprou um navio do tipo Galeao" << endl;
+		}
+		else if (tipo == "f") {
+			Fragata f;
+			f.setX(portos[0].getX());
+			f.setY(portos[0].getY());
+			setFragata(f);
+			setMoney(-preco);
+			cout << "Comprou um navio do tipo Fragata" << endl;
+		}
+		else if (tipo == "i") {
+			Iate i;
+			i.setX(portos[0].getX());
+			i.setY(portos[0].getY());
+			setIate(i);
+			setMoney(-preco);
+			cout << "Comprou um navio do tipo Iate" << endl;
+		}
+		else {
+			cout << "Tipo de navio inexistente!" << endl;
+			return;
+		}
 	}
 	else {
-		cout << "Tipo de navio inexistente!" << endl;
-		return;
+		cout << "Nao tem dinheiro suficiente" << endl;
 	}
 }
 
@@ -225,8 +235,13 @@ void Jogador::compraMercadorias(int id, int quantidade, int preco) {
 		if (navios[i].getId() == id) {
 			for (unsigned int j = 0; j < portos.size(); j++) {
 				if (navios[i].getX() == portos[j].getX() && navios[i].getY() == portos[j].getY()) {
-					if (navios[i].setMercadorias(quantidade)) {
-						setMoney(-(quantidade * preco));
+					if (getMoney() - (quantidade * preco) >= 0) {
+						if (navios[i].setMercadorias(quantidade)) {
+							setMoney(-(quantidade * preco));
+						}
+					}
+					else {
+						cout << "Nao tem dinheiro suficiente" << endl;
 					}
 					done = true;
 				}
@@ -268,6 +283,7 @@ void Jogador::vendeNavio(string tipo, int precoM, int precoP, int precoN) {
 					setMoney(navios[i].getPeixe() * precoP);
 					setMoney(precoN);
 					navios.erase(navios.begin() + i);
+					cout << money << endl;
 					done = true;
 				}
 			}

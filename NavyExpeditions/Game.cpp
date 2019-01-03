@@ -20,6 +20,7 @@ void Game::run() {
 	bool val = false;
 	setGrelha();
 	setPortos();
+	jog.setMoney(config.getMoedas());
 
 	do {
 		//Fases
@@ -279,7 +280,7 @@ void Game::resolveCommand(string comando) {
 	}
 	else if (cmd == "compranav") {
 		iss >> cmd; // fica com o tipo de navio a ser comprado
-		jog.compraNav(cmd);
+		jog.compraNav(cmd, config.getPrecoNavio());
 	}
 	else if (cmd == "vendenav") {
 		iss >> cmd; //<N>

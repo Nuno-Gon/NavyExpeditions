@@ -28,7 +28,7 @@ public:
 	void setMoney(int m);
 	int getMoney();
 	void moveNavios(int n, string x, vector <vector <Celula>>& grelha);
-	void compraNav(string tipo);
+	void compraNav(string tipo, int preco);
 	vector<Navio> getVectorNavios();
 	vector<Porto> getVectorPortos();
 	void verifcaEscuna();
