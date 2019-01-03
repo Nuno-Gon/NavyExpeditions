@@ -19,7 +19,7 @@ void Game::run() {
 	string comando;
 	bool val = false;
 	setGrelha();
-	//setPortos();
+	setPortos();
 
 	do {
 		//Fases

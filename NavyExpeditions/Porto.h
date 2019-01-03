@@ -11,7 +11,7 @@ using namespace std;
 class Porto : public Terreno{
 public:
 
-	Porto();
+	//Porto();
 	Porto(int x, int y);
 	
 	void setX(int x);

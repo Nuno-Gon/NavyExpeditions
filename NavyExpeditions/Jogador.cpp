@@ -83,36 +83,36 @@ void Jogador::moveNavios() {
 void Jogador::compraNav(string tipo) {
 	if (tipo == "v") {
 		Veleiro v;
-		v.setX(2); //criar navio no porto principal
-		v.setY(10); //ir buscar o primeiro porto do vetor de portos, ou seja o primeiro, principal?
+		v.setX(portos[0].getX()); //criar navio no porto principal
+		v.setY(portos[0].getY()); //ir buscar o primeiro porto do vetor de portos, ou seja o primeiro, principal?
 		setVeleiro(v);
 		cout << "Comprou um navio do tipo Veleiro" << endl;
 	}
 	else if (tipo == "e") {
 		Escuna e;
-		e.setX(2);
-		e.setY(10);
+		e.setX(portos[0].getX());
+		e.setY(portos[0].getY());
 		setEscuna(e);
 		cout << "Comprou um navio do tipo Escuna" << endl;
 	}
 	else if (tipo == "g") {
 		Galeao g;
-		g.setX(2);
-		g.setY(10);
+		g.setX(portos[0].getX());
+		g.setY(portos[0].getY());
 		setGaleao(g);
 		cout << "Comprou um navio do tipo Galeao" << endl;
 	}
 	else if (tipo == "f") {
 		Fragata f;
-		f.setX(2);
-		f.setY(10);
+		f.setX(portos[0].getX());
+		f.setY(portos[0].getY());
 		setFragata(f);
 		cout << "Comprou um navio do tipo Fragata" << endl;
 	}
 	else if (tipo == "i") {
 		Iate i;
-		i.setX(2);
-		i.setY(10);
+		i.setX(portos[0].getX());
+		i.setY(portos[0].getY());
 		setIate(i);
 		cout << "Comprou um navio do tipo Fragata" << endl;
 	}
@@ -123,9 +123,9 @@ void Jogador::compraNav(string tipo) {
 }
 
 void Jogador::verifcaEscuna() {
-	for (int i = 0; i < navios.size(); i++) {
+	for (unsigned int i = 0; i < navios.size(); i++) {
 		if (navios[i].getIcon() == 'v' || navios[i].getIcon() == 'g' || navios[i].getIcon() == 'i') {
-			for (int j = 0; j < navios.size(); j++) {
+			for (unsigned int j = 0; j < navios.size(); j++) {
 				if ((navios[i].getX() == navios[j].getX() - 1 || navios[i].getX() == navios[j].getX() || navios[i].getX() == navios[j].getX() + 1)
 					&& (navios[i].getY() == navios[j].getY() - 1 || navios[i].getY() == navios[j].getY() || navios[i].getY() == navios[j].getY() + 1)) {
 					if (navios[i].getIcon() == 'v') {
@@ -167,9 +167,9 @@ void Jogador::verifcaEscuna() {
 void Jogador::compraMercadorias(int id, int quantidade, int preco) {
 	
 	bool done = false;
-	for (int i = 0; i < navios.size(); i++) {
+	for (unsigned int i = 0; i < navios.size(); i++) {
 		if (navios[i].getId() == id) {
-			for (int j = 0; j < portos.size(); j++) {
+			for (unsigned int j = 0; j < portos.size(); j++) {
 				if (navios[i].getX() == portos[j].getX() && navios[i].getY() == portos[j].getY()) {
 					if (navios[i].setMercadorias(quantidade)) {
 						setMoney(-(quantidade * preco));
@@ -186,9 +186,9 @@ void Jogador::compraMercadorias(int id, int quantidade, int preco) {
 
 void Jogador::vendeMercadorias(int id, int precoM, int precoP) {
 	bool done = false;
-	for (int i = 0; i < navios.size(); i++) {
+	for (unsigned int i = 0; i < navios.size(); i++) {
 		if (navios[i].getId() == id) {
-			for (int j = 0; j < portos.size(); j++) {
+			for (unsigned int j = 0; j < portos.size(); j++) {
 				if (navios[i].getX() == portos[j].getX() && navios[i].getY() == portos[j].getY()) {
 					setMoney(navios[i].getMercadoria() * precoM);
 					setMoney(navios[i].getPeixe() * precoP);
