@@ -173,9 +173,11 @@ void Game::displayLista() {
 //	Consola::gotoxy(45, 0);
 	cout << endl;
 	cout << "--- Lista de Precos --- " << endl;
-	cout << "Comprar 1 navio - 100 moedas" << endl;
-	cout << "Comprar soldados 1 - 1 moeda" << endl; // receber valor da quantidade de soldados
-	cout << "Comprar Mercadoria - X" << endl;
+	cout << "Navio - " << config.getPrecoNavio() <<  " moedas" << endl;
+	cout << "Soldado - " << config.getPrecoSoldado() << " moeda" << endl; // receber valor da quantidade de soldados
+	cout << "Venda de peixe - " << config.getPrecoVendPeixe() << " moedas" << endl;
+	cout << "Venda de mercadoria - " << config.getPrecoVendMercad() << " moedas" << endl;
+	cout << "Compra de mercadoria - " << config.getPrecoCompMercad() << " moedas" << endl;
 	//lista varia valor entre portos?
 }
 void Game::displayInfoShips() {
@@ -279,15 +281,22 @@ void Game::resolveCommand(string comando) {
 	}
 	else if (cmd == "vendenav") {
 		iss >> cmd; //<N>
+		jog.vendeNavio(cmd, config.getPrecoVendMercad(), config.getPrecoVendPeixe(), config.getPrecoNavio());
 	}
 	else if (cmd == "lista") {
 		displayLista();
 	}
 	else if (cmd == "compra") {
-		iss >> cmd; //<N><M>
+		int i;
+		int q;
+		iss >> i; //<N><M>
+		iss >> q;
+		jog.compraMercadorias(i, q, config.getPrecoCompMercad());
 	}
 	else if (cmd == "vende") {
-		iss >> cmd; //<N>
+		int i;
+		iss >> i; //<N>
+		jog.vendeMercadorias(i, config.getPrecoVendMercad(), config.getPrecoVendPeixe());
 	}
 	else if (cmd == "move") {
 		int n;
@@ -319,7 +328,11 @@ void Game::resolveCommand(string comando) {
 		//<N><P>
 	}
 	else if (cmd == "comprasold") {
-		iss >> cmd; //<N><S>
+		int i;
+		int s;
+		iss >> i; //<N><S>
+		iss >> s;
+		jog.compraSoldados(i, s, config.getPrecoSoldado());
 	}
 	else if (cmd == "saveg") {
 		iss >> cmd; //<nome>

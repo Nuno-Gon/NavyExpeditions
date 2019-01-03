@@ -15,6 +15,7 @@ probpirata 20
 preconavio 100
 precosoldado 1
 precovendpeixe 1
+precocompmercad 2
 precovendmercad 3
 soldadosporto 100
 probevento 30

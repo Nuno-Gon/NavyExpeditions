@@ -83,6 +83,10 @@ void Configuration::getFileConfig(bool *val, string fich) {
 				iss >> c;
 				setPrecoVendPeixe(stoi(c));
 			}
+			else if (c == "precocompmercad") {
+				iss >> c;
+				setPrecoCompMercad(stoi(c));
+			}
 			else if (c == "precovendmercad") {
 				iss >> c;
 				setPrecoVendMercad(stoi(c));
@@ -137,6 +141,7 @@ float Configuration::getProbPirata() { return this->probpirata; }
 int Configuration::getPrecoNavio() { return this->preconavio; }
 int Configuration::getPrecoSoldado() { return this->precosoldado; }
 int Configuration::getPrecoVendPeixe() { return this->precovendpeixe; }
+int Configuration::getPrecoCompMercad() { return this->precocompmercad; }
 int Configuration::getPrecoVendMercad() { return this->precovendmercad; }
 int Configuration::getSoldadosPorto() { return this->soldadosporto; }
 float Configuration::getProbEvento() { return this->probevento; }
@@ -152,6 +157,7 @@ void Configuration::setProbPirata(float p) { this->probpirata = p; }
 void Configuration::setPrecoNavio(int p) { this->preconavio = p; }
 void Configuration::setPrecoSoldado(int p) { this->precosoldado = p; }
 void Configuration::setPrecoVendPeixe(int p) { this->precovendpeixe = p; }
+void Configuration::setPrecoCompMercad(int p) { this->precocompmercad = p; }
 void Configuration::setPrecoVendMercad(int p) { this->precovendmercad = p; }
 void Configuration::setSoldadosPorto(int p) { this->soldadosporto = p; }
 void Configuration::setProbEvento(float p) { this->probevento = p; }

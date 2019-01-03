@@ -25,6 +25,7 @@ public:
 	int getPrecoNavio();
 	int getPrecoSoldado();
 	int getPrecoVendPeixe();
+	int getPrecoCompMercad();
 	int getPrecoVendMercad();
 	int getSoldadosPorto();
 	float getProbEvento();
@@ -40,6 +41,7 @@ public:
 	void setPrecoNavio(int p);
 	void setPrecoSoldado(int p);
 	void setPrecoVendPeixe(int p);
+	void setPrecoCompMercad(int p);
 	void setPrecoVendMercad(int p);
 	void setSoldadosPorto(int p);
 	void setProbEvento(float p);
@@ -58,6 +60,7 @@ private:
 	int preconavio;
 	int precosoldado;
 	int precovendpeixe;
+	int precocompmercad;
 	int precovendmercad;
 	int soldadosporto;
 	float probevento;

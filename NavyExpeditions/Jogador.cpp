@@ -232,7 +232,7 @@ void Jogador::compraMercadorias(int id, int quantidade, int preco) {
 				}
 			}
 			if (!done) {
-				cout << "O navio escolhido nao esta num porto";
+				cout << "O navio escolhido nao esta num porto" << endl;
 			}
 		}
 	}
@@ -252,16 +252,16 @@ void Jogador::vendeMercadorias(int id, int precoM, int precoP) {
 				}
 			}
 			if (!done) {
-				cout << "O navio escolhido nao esta num porto";
+				cout << "O navio escolhido nao esta num porto" << endl;
 			}
 		}
 	}
 }
 
-void Jogador::vendeNavio(char tipo, int precoM, int precoP, int precoN) {
+void Jogador::vendeNavio(string tipo, int precoM, int precoP, int precoN) {
 	bool done = false;
 	for (unsigned int i = 0; i < navios.size(); i++) {
-		if (navios[i].getIcon() == tipo) {
+		if (navios[i].getIcon() == tipo[0]) {
 			for (unsigned int j = 0; j < portos.size(); j++) {
 				if (navios[i].getX() == portos[j].getX() && navios[i].getY() == portos[j].getY()) {
 					setMoney(navios[i].getMercadoria() * precoM);
@@ -272,7 +272,7 @@ void Jogador::vendeNavio(char tipo, int precoM, int precoP, int precoN) {
 				}
 			}
 			if (!done) {
-				cout << "O navio escolhido nao esta num porto";
+				cout << "O navio escolhido nao esta num porto" << endl;
 			}
 		}
 	}
@@ -291,7 +291,7 @@ void Jogador::compraSoldados(int id, int quantidade, int preco) {
 				}
 			}
 			if (!done) {
-				cout << "O navio escolhido nao esta num porto";
+				cout << "O navio escolhido nao esta num porto" << endl;
 			}
 		}
 	}
