@@ -164,9 +164,11 @@ void Game::displayShips() {
 		c = i[j].getIcon();
 
 		Consola::gotoxy(x, y);
+		Consola::setBackgroundColor(Consola::BRANCO);
 		Consola::setTextColor(Consola::VERDE);
 		cout << c;
 		Consola::setTextColor(Consola::BRANCO);
+		Consola::setBackgroundColor(Consola::PRETO);
 	}
 }
 void Game::displayLista() {
