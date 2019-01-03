@@ -143,48 +143,58 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Calmaria.h" />
     <ClInclude Include="Celula.h" />
     <ClInclude Include="Configuration.h" />
     <ClInclude Include="Consola.h" />
     <ClInclude Include="Escuna.h" />
+    <ClInclude Include="Evento.h" />
     <ClInclude Include="Fragata.h" />
     <ClInclude Include="Galeao.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Iate.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Mar.h" />
+    <ClInclude Include="Motim.h" />
     <ClInclude Include="Navio.h" />
     <ClInclude Include="Pirata.h" />
     <ClInclude Include="Porto.h" />
     <ClInclude Include="Posicao.h" />
+    <ClInclude Include="Sereias.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Tempestade.h" />
     <ClInclude Include="Terra.h" />
     <ClInclude Include="Terreno.h" />
     <ClInclude Include="Veleiro.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Calmaria.cpp" />
     <ClCompile Include="Celula.cpp" />
     <ClCompile Include="Configuration.cpp" />
     <ClCompile Include="Consola.cpp" />
     <ClCompile Include="Escuna.cpp" />
+    <ClCompile Include="Evento.cpp" />
     <ClCompile Include="Fragata.cpp" />
     <ClCompile Include="Galeao.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Iate.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Mar.cpp" />
+    <ClCompile Include="Motim.cpp" />
     <ClCompile Include="Navio.cpp" />
     <ClCompile Include="NavyExpeditions.cpp" />
     <ClCompile Include="Pirata.cpp" />
     <ClCompile Include="Porto.cpp" />
     <ClCompile Include="Posicao.cpp" />
+    <ClCompile Include="Sereias.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Tempestade.cpp" />
     <ClCompile Include="Terra.cpp" />
     <ClCompile Include="Terreno.cpp" />
     <ClCompile Include="Veleiro.cpp" />

@@ -144,11 +144,11 @@ int Configuration::getPrecoVendPeixe() { return this->precovendpeixe; }
 int Configuration::getPrecoCompMercad() { return this->precocompmercad; }
 int Configuration::getPrecoVendMercad() { return this->precovendmercad; }
 int Configuration::getSoldadosPorto() { return this->soldadosporto; }
-float Configuration::getProbEvento() { return this->probevento; }
-float Configuration::getProbTempestade() { return this->probtempestade; }
-float Configuration::getProbSereias() { return this->probsereias; }
-float Configuration::getProbCalmaria() { return this->probcalmaria; }
-float Configuration::getProbMotim() { return this->probmotim; }
+int Configuration::getProbEvento() { return this->probevento; }
+int Configuration::getProbTempestade() { return this->probtempestade; }
+int Configuration::getProbSereias() { return this->probsereias; }
+int Configuration::getProbCalmaria() { return this->probcalmaria; }
+int Configuration::getProbMotim() { return this->probmotim; }
 //Setters
 void Configuration::setLinhas(int l) { this->linhas = l; }
 void Configuration::setColunas(int c) { this->colunas = c; }
@@ -160,11 +160,11 @@ void Configuration::setPrecoVendPeixe(int p) { this->precovendpeixe = p; }
 void Configuration::setPrecoCompMercad(int p) { this->precocompmercad = p; }
 void Configuration::setPrecoVendMercad(int p) { this->precovendmercad = p; }
 void Configuration::setSoldadosPorto(int p) { this->soldadosporto = p; }
-void Configuration::setProbEvento(float p) { this->probevento = p; }
-void Configuration::setProbTempestade(float p) { this->probtempestade = p; }
-void Configuration::setProbSereias(float p) { this->probsereias = p; }
-void Configuration::setProbCalmaria(float p) { this->probcalmaria = p; }
-void Configuration::setProbMotim(float p) { this->probmotim = p; }
+void Configuration::setProbEvento(int p) { this->probevento = p; }
+void Configuration::setProbTempestade(int p) { this->probtempestade = p; }
+void Configuration::setProbSereias(int p) { this->probsereias = p; }
+void Configuration::setProbCalmaria(int p) { this->probcalmaria = p; }
+void Configuration::setProbMotim(int p) { this->probmotim = p; }
 
 vector<string> Configuration::getMapa() {
 	return map;

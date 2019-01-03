@@ -28,6 +28,7 @@ public:
 	void save(string nome);
 	void load(string nome);
 	void del(string nome);
+	void eventPhase();
 	bool confirmaComando(string comando);
 	~Game();
 	

@@ -8,6 +8,7 @@
 #include "Porto.h"
 #include "Jogador.h"
 #include "Consola.h"
+#include "Evento.h"
 #include <vector>
 #include <ctime>
 
@@ -53,10 +54,22 @@ void Game::run() {
 		//Combates:
 
 		//Eventos:
-
+		eventPhase();
 		//Piratas:
 
 	} while (val != true);
+}
+void Game::eventPhase() {
+	srand((unsigned int)time(NULL));
+	//bool r = (rand() % 100) < config.getProbEvento();
+	bool r = true;
+	if (r == true) {
+		cout << "Ocorreu um evento!" << endl;
+		Evento ev(config.getProbCalmaria(), config.getProbMotim(), config.getProbSereias(), config.getProbTempestade());
+	}
+	else
+		cout << "Nao ocorreu evento!" << endl;
+	cin.get();
 }
 void Game::setGrelha() {
 	/*passar o mapa de um Vetor de Strings (primeira meta)
@@ -283,6 +296,7 @@ bool Game::confirmaComando(string comando) {
 	else if (c == "sair" || c == "exec" || c == "lista" || c == "moedas" || c == "infonavios" || c == "evpos" || c == "evnav" || c == "saveg" || c == "loadg" || c == "delg") {
 		resolveCommand(comando);
 		cin.get();
+		return false;
 	}	
 	else{
 		cout << "Comando: '" << comando << "' inexistente!!" << endl;

@@ -28,11 +28,11 @@ public:
 	int getPrecoCompMercad();
 	int getPrecoVendMercad();
 	int getSoldadosPorto();
-	float getProbEvento();
-	float getProbTempestade();
-	float getProbSereias();
-	float getProbCalmaria();
-	float getProbMotim();
+	int getProbEvento();
+	int getProbTempestade();
+	int getProbSereias();
+	int getProbCalmaria();
+	int getProbMotim();
 
 	void setLinhas(int l);
 	void setColunas(int c);
@@ -44,11 +44,11 @@ public:
 	void setPrecoCompMercad(int p);
 	void setPrecoVendMercad(int p);
 	void setSoldadosPorto(int p);
-	void setProbEvento(float p);
-	void setProbTempestade(float p);
-	void setProbSereias(float p);
-	void setProbCalmaria(float p);
-	void setProbMotim(float p);
+	void setProbEvento(int p);
+	void setProbTempestade(int p);
+	void setProbSereias(int p);
+	void setProbCalmaria(int p);
+	void setProbMotim(int p);
 
 	vector<string> getMapa();
 	vector<string> map;
@@ -63,11 +63,11 @@ private:
 	int precocompmercad;
 	int precovendmercad;
 	int soldadosporto;
-	float probevento;
-	float probtempestade;
-	float probsereias;
-	float probcalmaria;
-	float probmotim;
+	int probevento;
+	int probtempestade;
+	int probsereias;
+	int probcalmaria;
+	int probmotim;
 
 	//vector<string> map;
 };
