@@ -22,6 +22,7 @@ public:
 	void displayMap();
 	void displayShips();
 	void displayLista();
+	void displayInfoShips();
 	void setGrelha();
 	void setPortos();
 	void save(string nome);

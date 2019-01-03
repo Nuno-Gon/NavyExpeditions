@@ -10,6 +10,7 @@
 #include "Galeao.h"
 #include "Iate.h"
 #include "Porto.h"
+#include "Celula.h"
 
 using namespace std;
 
@@ -26,7 +27,7 @@ public:
 	void setPorto(Porto p);
 	void setMoney(int m);
 	int getMoney();
-	void moveNavios(int n, string x);
+	void moveNavios(int n, string x, vector <vector <Celula>>& grelha);
 	void compraNav(string tipo);
 	vector<Navio> getVectorNavios();
 	vector<Porto> getVectorPortos();

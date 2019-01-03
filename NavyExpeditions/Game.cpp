@@ -31,7 +31,7 @@ void Game::run() {
 		
 		//Execucao de comandos pendentes / comportamento auto:
 		displayMenuTwo();
-		Consola::gotoxy(0, 21);
+		Consola::gotoxy(0, 22);
 		system("pause");
 
 		//Combates:
@@ -178,7 +178,31 @@ void Game::displayLista() {
 	cout << "Comprar Mercadoria - X" << endl;
 	//lista varia valor entre portos?
 }
+void Game::displayInfoShips() {
+	int n = 0;
+	auto i = jog.getVectorNavios();
+	Consola::gotoxy(78, 0);
+	cout << "Info dos Navios --- \n" << endl;
+	if (jog.getVectorNavios().empty()) {
+		Consola::gotoxy(78, 1);
+		cout << "Nao existem Navios" << endl;
+		return;
+	}
+	for (unsigned int j = 0; j < i.size(); j++) {
+		Consola::gotoxy(78, n+j+1);
+		cout << "Nr: " << i[j].getId() << " - Tipo: " << i[j].getIcon() << endl;
+		Consola::gotoxy(78, n+j+2);
+		cout << "Coordenadas: " << "(" << i[j].getX() << "," << i[j].getY() << ")" << endl;
+		Consola::gotoxy(78, n + j + 3);
+		cout << "Solados: " << i[j].getSoldados() << endl;
+		Consola::gotoxy(78, n + j + 4);
+		cout << "Mercadorias: " << i[j].getMercadoria() << " - Peixe: " << i[j].getPeixe() << endl;
+		Consola::gotoxy(78, n + j + 5);
+		cout << "Agua: " << i[j].getAgua() << endl;
 
+		n += 5;
+	}
+}
 void Game::displayMenuTwo() {
 	string comando;
 	//system("cls");
@@ -224,9 +248,11 @@ void Game::displayMenuTwo() {
 	Consola::gotoxy(45, 19);
 	cout << "delg <nome>" << endl;
 	Consola::gotoxy(45, 20);
+	cout << "infonavios" << endl;
+	Consola::gotoxy(45, 21);
 	cout << "sair" << endl;
 	cout << endl;
-	Consola::gotoxy(45, 21);
+	Consola::gotoxy(45, 22);
 	cout << "Comando: ";
 	getline(cin, comando);
 
@@ -247,16 +273,16 @@ void Game::resolveCommand(string comando) {
 		// ou fazer um do{ displaymenuTwo }whilte(prox) e depois correr os comandos
 		// dunno...
 	}
-	else if (cmd == "compranav") { 
-			iss >> cmd; // fica com o tipo de navio a ser comprado
-			jog.compraNav(cmd);	
+	else if (cmd == "compranav") {
+		iss >> cmd; // fica com o tipo de navio a ser comprado
+		jog.compraNav(cmd);
 	}
 	else if (cmd == "vendenav") {
 		iss >> cmd; //<N>
 	}
 	else if (cmd == "lista") {
 		displayLista();
-	} 
+	}
 	else if (cmd == "compra") {
 		iss >> cmd; //<N><M>
 	}
@@ -268,7 +294,7 @@ void Game::resolveCommand(string comando) {
 		string x;//<N><X>
 		iss >> n;
 		iss >> x;
-		jog.moveNavios(n, x);
+		jog.moveNavios(n, x, grelha);
 	}
 	else if (cmd == "auto") {
 		iss >> cmd; //<N>
@@ -308,6 +334,12 @@ void Game::resolveCommand(string comando) {
 	else if (cmd == "sair") {
 		exit(0);
 	}
+	else if (cmd == "infonavios") {
+		displayInfoShips();
+	}
+	else
+		cout << "Comando inexistente!" << endl;
+	
 
 	//Jogador::moedas = Jogador::moedas - 100;
 }

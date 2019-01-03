@@ -40,40 +40,97 @@ void Jogador::setPorto(Porto p) {
 vector<Porto> Jogador::getVectorPortos() {
 	return portos;
 }
-void Jogador::moveNavios(int n, string x) {
+void Jogador::moveNavios(int n, string x, vector <vector <Celula>>& grelha) {
+	//converter a string x para UPPER CASE
 	x[0] = toupper(x[0]);
 	x[1] = toupper(x[1]);
-	//converter a string x para UPPER CASE e meter em dir
+
+	for (unsigned int i = 0; i < grelha.size(); i++) {
+		for (unsigned int j = 0; j < grelha[i].size(); j++) {
+			if (grelha[i][j].getImg() == '+');
+		}
+	}
+
 	for (unsigned int i = 0; i < navios.size(); i++) {
 		if (navios[i].getId() == n) {
-			if (x == "D")
-				navios[i].setY(navios[i].getY() + 1);
-			else if (x == "E")
-				navios[i].setY(navios[i].getY() - 1);
-			else if (x == "C")
-				navios[i].setX(navios[i].getX() - 1);
-			else if (x == "B")
-				navios[i].setX(navios[i].getX() + 1);
+			int xx = navios[i].getX();
+			int yy = navios[i].getY();
+
+			if (x == "D") {
+				if (grelha[xx][yy+1].getImg() == '+') {
+					cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+					break;
+				}
+				else
+					navios[i].setY(navios[i].getY() + 1);
+			}
+			else if (x == "E"){
+				if (grelha[xx][yy - 1].getImg() == '+') {
+					cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+					break;
+				}
+				else
+					navios[i].setY(navios[i].getY() - 1);
+			}
+			else if (x == "C"){
+				if (grelha[xx-1][yy].getImg() == '+') {
+					cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+					break;
+				}
+				else
+					navios[i].setX(navios[i].getX() - 1);
+			}
+			else if (x == "B") {
+				if (grelha[xx+1][yy].getImg() == '+') {
+					cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+					break;
+				}
+				else
+					navios[i].setX(navios[i].getX() + 1);
+			}
 			else if (x == "CE") {
-				navios[i].setX(navios[i].getX() - 1);
-				navios[i].setY(navios[i].getY() - 1);
+				if (grelha[xx-1][yy-1].getImg() == '+') {
+					cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+					break;
+				}
+				else {
+					navios[i].setX(navios[i].getX() - 1);
+					navios[i].setY(navios[i].getY() - 1);
+				}
 			}
 			else if (x == "CD") {
-				navios[i].setX(navios[i].getX() - 1);
-				navios[i].setY(navios[i].getY() + 1);
+				if (grelha[xx-1][yy + 1].getImg() == '+') {
+					cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+					break;
+				}
+				else {
+					navios[i].setX(navios[i].getX() - 1);
+					navios[i].setY(navios[i].getY() + 1);
+				}
 			}
 			else if (x == "BE") {
-				navios[i].setX(navios[i].getX() + 1);
-				navios[i].setY(navios[i].getY() - 1);
+				if (grelha[xx + 1][yy - 1].getImg() == '+') {
+					cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+					break;
+				}
+				else {
+					navios[i].setX(navios[i].getX() + 1);
+					navios[i].setY(navios[i].getY() - 1);
+				}
 			}
 			else if (x == "BD") {
-				navios[i].setX(navios[i].getX() + 1);
-				navios[i].setY(navios[i].getY() + 1);
+				if (grelha[xx + 1][yy + 1].getImg() == '+') {
+					cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+					break;
+				}
+				else {
+					navios[i].setX(navios[i].getX() + 1);
+					navios[i].setY(navios[i].getY() + 1);
+				}
 			}
 			else
 				cout << "Comando movimento incorreto!" << endl;
 		}
-		cin.get();
 	}
 }
 
@@ -81,7 +138,7 @@ void Jogador::compraNav(string tipo) {
 	if (tipo == "v") {
 		Veleiro v;
 		v.setX(portos[0].getX()); //criar navio no porto principal
-		v.setY(portos[0].getY()); //ir buscar o primeiro porto do vetor de portos, ou seja o primeiro, principal?
+		v.setY(portos[0].getY()); //ir buscar o primeiro porto do vetor de portos, ou seja o principal
 		setVeleiro(v);
 		cout << "Comprou um navio do tipo Veleiro" << endl;
 	}
@@ -111,7 +168,7 @@ void Jogador::compraNav(string tipo) {
 		i.setX(portos[0].getX());
 		i.setY(portos[0].getY());
 		setIate(i);
-		cout << "Comprou um navio do tipo Fragata" << endl;
+		cout << "Comprou um navio do tipo Iate" << endl;
 	}
 	else {
 		cout << "Tipo de navio inexistente!" << endl;
