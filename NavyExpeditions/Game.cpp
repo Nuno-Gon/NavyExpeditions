@@ -17,6 +17,7 @@ Game::Game(Configuration config) {
 
 void Game::run() {
 	string comando;
+	vector<string> cmds;
 	bool val = false;
 	setGrelha();
 	setPortos();
@@ -25,15 +26,29 @@ void Game::run() {
 	do {
 		//Fases
 		//Comandos:
-		Consola::clrscr();
-		displayMap(); //Aparecer 2x2 com cores
-		displayShips();
-		Consola::setBackgroundColor(Consola::PRETO);
+		do {
+			Consola::clrscr();
+			displayMap(); //Aparecer 2x2 com cores
+			displayShips();
+			Consola::setBackgroundColor(Consola::PRETO);
+			displayMenuTwo();
 		
+			getline(cin, comando);
+			if (comando == "prox") {
 		//Execucao de comandos pendentes / comportamento auto:
-		displayMenuTwo();
-		Consola::gotoxy(0, 22);
-		system("pause");
+				for (unsigned int i = 0; i < cmds.size(); i++){
+					resolveCommand(cmds[i]);
+					cin.get();
+				}
+				//myvector.clear() para limpar para o proximo prox
+				cmds.clear();
+			}
+			else if (confirmaComando(comando) == true) {
+				//colocar no vetor de comandos a ser executados
+				cmds.push_back(comando);
+			}
+
+		} while (comando != "prox");
 
 		//Combates:
 
@@ -210,8 +225,6 @@ void Game::displayInfoShips() {
 }
 void Game::displayMenuTwo() {
 	string comando;
-	//system("cls");
-	//cout << endl;
 	Consola::gotoxy(45, 0);
 	cout << "--- Lista de Comandos Fase 2 --- \n" << endl;
 	Consola::gotoxy(45, 1);
@@ -259,9 +272,23 @@ void Game::displayMenuTwo() {
 	cout << endl;
 	Consola::gotoxy(45, 22);
 	cout << "Comando: ";
-	getline(cin, comando);
-
-	resolveCommand(comando);
+}
+bool Game::confirmaComando(string comando) {
+	string c;
+	istringstream iss(comando);
+	iss >> c;
+	if (c == "compranav" || c == "vendenav" || c == "compra" || c == "vende" || c == "move" || c == "auto" || c == "stop" || c == "pirata" || c == "vaipara" || c == "comprasold") {
+		return true;
+	}
+	else if (c == "sair" || c == "exec" || c == "lista" || c == "moedas" || c == "infonavios" || c == "evpos" || c == "evnav" || c == "saveg" || c == "loadg" || c == "delg") {
+		resolveCommand(comando);
+		cin.get();
+	}	
+	else{
+		cout << "Comando: '" << comando << "' inexistente!!" << endl;
+		cin.get();
+		return false;
+	}
 }
 void Game::resolveCommand(string comando) {
 	string cmd;
