@@ -51,75 +51,248 @@ void Jogador::moveNavios(int n, string x, vector <vector <Celula>>& grelha) {
 			int yy = navios[i].getY();
 
 			if (x == "D") {
-				if (grelha[xx][yy+1].getImg() == '+') {
-					cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
-					break;
-				}
-				else
-					navios[i].setY(navios[i].getY() + 1);
-			}
-			else if (x == "E"){
-				if (grelha[xx][yy - 1].getImg() == '+') {
-					cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
-					break;
-				}
-				else
-					navios[i].setY(navios[i].getY() - 1);
-			}
-			else if (x == "C"){
-				if (grelha[xx-1][yy].getImg() == '+') {
-					cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
-					break;
-				}
-				else
-					navios[i].setX(navios[i].getX() - 1);
-			}
-			else if (x == "B") {
-				if (grelha[xx+1][yy].getImg() == '+') {
-					cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
-					break;
-				}
-				else
-					navios[i].setX(navios[i].getX() + 1);
-			}
-			else if (x == "CE") {
-				if (grelha[xx-1][yy-1].getImg() == '+') {
-					cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
-					break;
+				if (yy + 1 <= grelha[0].size() - 1) {
+					if (grelha[xx][yy + 1].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else
+						navios[i].setY(navios[i].getY() + 1);
 				}
 				else {
-					navios[i].setX(navios[i].getX() - 1);
-					navios[i].setY(navios[i].getY() - 1);
+					if (grelha[xx][0].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setY(0);
+					}
+				}
+			}
+			else if (x == "E"){
+				if (yy - 1 >= 0) {
+					if (grelha[xx][yy - 1].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else
+						navios[i].setY(navios[i].getY() - 1);
+				}
+				else {
+					if (grelha[xx][grelha[0].size() - 1].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setY(grelha[0].size() - 1);
+					}
+				}
+			}
+			else if (x == "C"){
+				if (xx - 1 >= 0) {
+					if (grelha[xx - 1][yy].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else
+						navios[i].setX(navios[i].getX() - 1);
+				}
+				else {
+					if (grelha[grelha.size() - 1][yy].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setX(grelha.size() - 1);
+					}
+				}
+
+			}
+			else if (x == "B") {
+				if (xx + 1 <= grelha.size() - 1) {
+					if (grelha[xx + 1][yy].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else
+						navios[i].setX(navios[i].getX() + 1);
+				}
+				else {
+					if (grelha[0][yy].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setX(0);
+					}
+				}
+			}
+			else if (x == "CE") {
+				if (xx - 1 >= 0 && yy - 1 >= 0) {
+					if (grelha[xx - 1][yy - 1].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setX(navios[i].getX() - 1);
+						navios[i].setY(navios[i].getY() - 1);
+					}
+				}
+				else if (xx - 1 < 0 && yy - 1 >= 0) {
+					if (grelha[grelha.size() - 1][yy - 1].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setX(grelha.size() - 1);
+						navios[i].setY(navios[i].getY() - 1);
+					}
+				}
+				else if (xx - 1 >= 0 && yy - 1 < 0) {
+					if (grelha[xx - 1][grelha[0].size() - 1].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setX(navios[i].getX() - 1);
+						navios[i].setY(grelha[0].size() - 1);
+					}
+				}
+				else if (xx - 1 < 0 && yy - 1 < 0) {
+					if (grelha[grelha.size() - 1][grelha[0].size() - 1].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setX(grelha.size() - 1);
+						navios[i].setY(grelha[0].size() - 1);
+					}
 				}
 			}
 			else if (x == "CD") {
-				if (grelha[xx-1][yy + 1].getImg() == '+') {
-					cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
-					break;
+				if (xx - 1 >= 0 && yy + 1 <= grelha[0].size() - 1) {
+					if (grelha[xx - 1][yy + 1].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setX(navios[i].getX() - 1);
+						navios[i].setY(navios[i].getY() + 1);
+					}
 				}
-				else {
-					navios[i].setX(navios[i].getX() - 1);
-					navios[i].setY(navios[i].getY() + 1);
+				else if (xx - 1 < 0 && yy + 1 <= grelha[0].size() - 1) {
+					if (grelha[grelha.size() - 1][yy + 1].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setX(grelha.size() - 1);
+						navios[i].setY(navios[i].getY() + 1);
+					}
+				}
+				else if (xx - 1 >= 0 && yy + 1 > grelha[0].size() - 1) {
+					if (grelha[xx - 1][0].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setX(navios[i].getX() + 1);
+						navios[i].setY(0);
+					}
+				}
+				else if (xx - 1 < 0 && yy + 1 > grelha[0].size() - 1) {
+					if (grelha[grelha.size() - 1][0].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setX(grelha.size() - 1);
+						navios[i].setY(0);
+					}
 				}
 			}
 			else if (x == "BE") {
-				if (grelha[xx + 1][yy - 1].getImg() == '+') {
-					cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
-					break;
+				if (xx + 1 <= grelha.size() - 1 && yy - 1 >= 0) {
+					if (grelha[xx + 1][yy - 1].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setX(navios[i].getX() + 1);
+						navios[i].setY(navios[i].getY() - 1);
+					}
 				}
-				else {
-					navios[i].setX(navios[i].getX() + 1);
-					navios[i].setY(navios[i].getY() - 1);
+				else if (xx + 1 > grelha.size() - 1 && yy - 1 >= 0) {
+					if (grelha[0][yy - 1].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setX(0);
+						navios[i].setY(navios[i].getY() - 1);
+					}
+				}
+				else if (xx + 1 <= grelha.size() - 1 && yy - 1 < 0) {
+					if (grelha[xx + 1][grelha[0].size() - 1].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setX(navios[i].getX() + 1);
+						navios[i].setY(grelha[0].size() - 1);
+					}
+				}
+				else if (xx + 1 > grelha.size() - 1 && yy - 1 < 0) {
+					if (grelha[0][grelha[0].size() - 1].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setX(0);
+						navios[i].setY(grelha[0].size() - 1);
+					}
 				}
 			}
 			else if (x == "BD") {
-				if (grelha[xx + 1][yy + 1].getImg() == '+') {
-					cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
-					break;
+				if (xx + 1 <= grelha.size() - 1 && yy + 1 <= grelha[0].size()) {
+					if (grelha[xx + 1][yy + 1].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setX(navios[i].getX() + 1);
+						navios[i].setY(navios[i].getY() + 1);
+					}
 				}
-				else {
-					navios[i].setX(navios[i].getX() + 1);
-					navios[i].setY(navios[i].getY() + 1);
+				else if (xx + 1 > grelha.size() - 1 && yy + 1 <= grelha[0].size()) {
+					if (grelha[0][yy + 1].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setX(0);
+						navios[i].setY(navios[i].getY() + 1);
+					}
+				}
+				else if (xx + 1 <= grelha.size() - 1 && yy + 1 > grelha[0].size()) {
+					if (grelha[xx + 1][0].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setX(navios[i].getX() + 1);
+						navios[i].setY(0);
+					}
+				}
+				else if (xx + 1 > grelha.size() - 1 && yy + 1 > grelha[0].size()) {
+					if (grelha[0][0].getImg() == '+') {
+						cout << "Tentativa de movimento para a terra, barco atracou na costa." << endl;
+						break;
+					}
+					else {
+						navios[i].setX(0);
+						navios[i].setY(0);
+					}
 				}
 			}
 			else
