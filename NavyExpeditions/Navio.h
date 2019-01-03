@@ -10,17 +10,19 @@ using namespace std;
 
 class Navio : public Posicao {
 public:
-	Navio(int, int, int, char);
+	Navio(int, int, int, int, char);
 	
 	int getId();
 	int getSoldados();
 	int getMercadoria();
+	int getPeixe();
 	int getAgua();
 	bool getDeriva();
 
 	void setId(int id);
 	void setSoldados(int s);
-	void setMercadorias(int m);
+	bool setMercadorias(int m);
+	void setPeixe(int p);
 	void setAgua(int a);
 	void setDeriva(bool d);
 
@@ -31,6 +33,7 @@ private:
 	int id;
 	int soldados;
 	int mercadoria;
+	int peixe;
 	int agua;
 	bool deriva;
 };

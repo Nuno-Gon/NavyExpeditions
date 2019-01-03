@@ -3,11 +3,12 @@
 
 int Navio::numNavios = 0;
 
-Navio::Navio(int s, int m, int a, char t) {
+Navio::Navio(int s, int m, int p, int a, char t) {
 	this->numNavios++;
 	this->id = numNavios;
 	this->soldados = s;
 	this->mercadoria = m;
+	this->peixe = p;
 	this->agua = a;
 	this->deriva = false;
 	if (t == 'v') {
@@ -41,6 +42,10 @@ int Navio::getAgua() {
 
 int Navio::getMercadoria() {
 	return this->mercadoria;
+}
+
+int Navio::getPeixe() {
+	return this->peixe;
 }
 
 bool Navio::getDeriva() {
@@ -113,55 +118,128 @@ void Navio::setSoldados(int s) {
 	}
 }
 
-void Navio::setMercadorias(int m) {
+bool Navio::setMercadorias(int m) {
 	if (this->getIcon() == 'v') {
-		if (this->mercadoria + m > 40) {
-			cout << "Nao e possivel adicionar tanta mercadoria ao veleiro (max 40, atualmente " << this->mercadoria << ")";
+		if (this->mercadoria + this->peixe + m > 40) {
+			int total = this->mercadoria + this->peixe;
+			cout << "Nao e possivel adicionar tanta mercadoria ao veleiro (max 40, atualmente " << total << ")";
+			return false;
 		}
 		else if (this->mercadoria + m < 0) {
 			cout << "Nao e possivel retirar mercadoria que nao existe";
+			return false;
 		}
 		else {
 			this->mercadoria = this->mercadoria + m;
+			return true;
 		}
 	}
 	else if (this->getIcon() == 'g') {
-		if (this->mercadoria + m > 70) {
-			cout << "Nao e possivel adicionar tanta mercadoria ao galeao (max 70, atualmente " << this->mercadoria << ")";
+		if (this->mercadoria + this->peixe + m > 70) {
+			int total = this->mercadoria + this->peixe;
+			cout << "Nao e possivel adicionar tanta mercadoria ao galeao (max 70, atualmente " << total << ")";
+			return false;
 		}
 		else if (this->mercadoria + m < 0) {
 			cout << "Nao e possivel retirar mercadoria que nao existe";
+			return false;
 		}
 		else {
 			this->mercadoria = this->mercadoria + m;
+			return true;
 		}
 	}
 	else if (this->getIcon() == 'e') {
-		if (this->mercadoria + m > 20) {
-			cout << "Nao e possivel adicionar tanta mercadoria a escuna (max 20, atualmente " << this->mercadoria << ")";
+		if (this->mercadoria + this->peixe + m > 20) {
+			int total = this->mercadoria + this->peixe;
+			cout << "Nao e possivel adicionar tanta mercadoria a escuna (max 20, atualmente " << total << ")";
+			return false;
 		}
 		else if (this->mercadoria + m < 0) {
 			cout << "Nao e possivel retirar mercadoria que nao existe";
+			return false;
 		}
 		else {
 			this->mercadoria = this->mercadoria + m;
+			return true;
 		}
 	}
 	else if (this->getIcon() == 'f') {
 		cout << "Nao e possivel adicionar mercadoria a uma fragata!";
+		return false;
 	}
 	else if (this->getIcon() == 'i') {
-		if (this->mercadoria + m > 100) {
-			cout << "Nao e possivel adicionar tanta mercadoria ao iate (max 500, atualmente " << this->mercadoria << ")";
+		if (this->mercadoria + this->peixe + m > 100) {
+			int total = this->mercadoria + this->peixe;
+			cout << "Nao e possivel adicionar tanta mercadoria ao iate (max 500, atualmente " << total << ")";
+			return false;
 		}
 		else if (this->mercadoria + m < 0) {
 			cout << "Nao e possivel retirar mercadoria que nao existe";
+			return false;
 		}
 		else {
 			this->mercadoria = this->mercadoria + m;
+			return true;
+		}
+	}
+	return false;
+}
+
+void Navio::setPeixe(int p) {
+	if (this->getIcon() == 'v') {
+		if (this->mercadoria + this->peixe + p > 40) {
+			int total = this->mercadoria + this->peixe;
+			cout << "Nao e possivel adicionar mais peixe ao veleiro (max 40, atualmente " << total << ")";
+		}
+		else if (this->peixe + p < 0) {
+			cout << "Nao e possivel retirar peixe que nao existe";
+		}
+		else {
+			this->peixe = this->peixe + p;
+		}
+	}
+	else if (this->getIcon() == 'g') {
+		if (this->mercadoria + this->peixe + p > 70) {
+			int total = this->mercadoria + this->peixe;
+			cout << "Nao e possivel adicionar mais peixe ao veleiro (max 40, atualmente " << total << ")";
+		}
+		else if (this->peixe + p < 0) {
+			cout << "Nao e possivel retirar peixe que nao existe";
+		}
+		else {
+			this->peixe = this->peixe + p;
+		}
+	}
+	else if (this->getIcon() == 'e') {
+		if (this->mercadoria + this->peixe + p > 20) {
+			int total = this->mercadoria + this->peixe;
+			cout << "Nao e possivel adicionar mais peixe ao veleiro (max 40, atualmente " << total << ")";
+		}
+		else if (this->peixe + p < 0) {
+			cout << "Nao e possivel retirar peixe que nao existe";
+		}
+		else {
+			this->peixe = this->peixe + p;
+		}
+	}
+	else if (this->getIcon() == 'f') {
+		cout << "Nao e possivel adicionar peixe a uma fragata!";
+	}
+	else if (this->getIcon() == 'i') {
+		if (this->mercadoria + this->peixe + p > 100) {
+			int total = this->mercadoria + this->peixe;
+			cout << "Nao e possivel adicionar mais peixe ao veleiro (max 40, atualmente " << total << ")";
+		}
+		else if (this->peixe + p < 0) {
+			cout << "Nao e possivel retirar peixe que nao existe";
+		}
+		else {
+			this->peixe = this->peixe + p;
 		}
 	}
 }
+
 void Navio::setAgua(int a) {
 	if (this->getIcon() == 'v') {
 		if (this->agua + a > 200) {

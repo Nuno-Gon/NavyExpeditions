@@ -32,7 +32,7 @@ public:
 	vector<Porto> getVectorPortos();
 	void verifcaEscuna();
 	void compraMercadorias(int id, int quantidade, int preco);
-	void vendeMercadorias(int id, int preco);
+	void vendeMercadorias(int id, int precoM, int precoP);
 	
 	~Jogador();
 
