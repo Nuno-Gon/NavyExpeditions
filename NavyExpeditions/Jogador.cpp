@@ -164,14 +164,15 @@ void Jogador::verifcaEscuna() {
 	}
 }
 
-void Jogador::compraMercadorias(int id, int quantidade) {
+void Jogador::compraMercadorias(int id, int quantidade, int preco) {
+	
 	bool done = false;
 	for (int i = 0; i < navios.size(); i++) {
 		if (navios[i].getId() == id) {
 			for (int j = 0; j < portos.size(); j++) {
 				if (navios[i].getX() == portos[j].getX() && navios[i].getY() == portos[j].getY()) {
 					navios[i].setMercadorias(quantidade);
-					setMoney(-(quantidade * 2));
+					setMoney(-(quantidade * preco));
 					done = true;
 				}
 			}
@@ -182,13 +183,13 @@ void Jogador::compraMercadorias(int id, int quantidade) {
 	}
 }
 
-void Jogador::vendeMercadorias(int id) {
+void Jogador::vendeMercadorias(int id, int preco) {
 	bool done = false;
 	for (int i = 0; i < navios.size(); i++) {
 		if (navios[i].getId() == id) {
 			for (int j = 0; j < portos.size(); j++) {
 				if (navios[i].getX() == portos[j].getX() && navios[i].getY() == portos[j].getY()) {
-					setMoney(navios[i].getMercadoria() * 3);
+					setMoney(navios[i].getMercadoria() * preco);
 					navios[i].setMercadorias(-navios[i].getMercadoria());
 					done = true;
 				}

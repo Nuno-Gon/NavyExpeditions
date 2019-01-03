@@ -31,8 +31,8 @@ public:
 	vector<Navio> getVectorNavios();
 	vector<Porto> getVectorPortos();
 	void verifcaEscuna();
-	void compraMercadorias(int id, int quantidade);
-	void vendeMercadorias(int id);
+	void compraMercadorias(int id, int quantidade, int preco);
+	void vendeMercadorias(int id, int preco);
 	
 	~Jogador();
 
