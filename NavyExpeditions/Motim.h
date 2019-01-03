@@ -4,7 +4,7 @@ class Motim : public Evento{
 public:
 	Motim();
 	void eventoAcao();
-	//void msg();
+	void msg();
 	~Motim();
 };
 

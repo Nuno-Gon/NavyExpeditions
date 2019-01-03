@@ -2,10 +2,13 @@
 #include "Tempestade.h"
 
 
-Tempestade::Tempestade()
-{
+Tempestade::Tempestade(){
+	msg();
 }
 
+void Tempestade::msg() {
+	cout << "Ocorreu um Evento: Tempestade!" << endl;
+};
 
 Tempestade::~Tempestade()
 {

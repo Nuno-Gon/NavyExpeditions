@@ -4,7 +4,7 @@ class Sereias : public Evento {
 public:
 	Sereias();
 	void eventoAcao();
-	//void msg();
+	void msg();
 	~Sereias();
 };
 

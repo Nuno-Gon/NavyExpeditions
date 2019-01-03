@@ -4,7 +4,7 @@ class Calmaria : public Evento {
 public:
 	Calmaria();
 	void eventoAcao();
-	//void msg();
+	void msg();
 	~Calmaria();
 };
 

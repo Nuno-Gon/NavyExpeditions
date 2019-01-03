@@ -4,7 +4,7 @@ class Tempestade : public Evento {
 public:
 	Tempestade();
 	void eventoAcao();
-	//void msg();
+	void msg();
 	~Tempestade();
 };
 
