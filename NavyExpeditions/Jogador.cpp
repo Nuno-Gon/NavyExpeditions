@@ -45,12 +45,6 @@ void Jogador::moveNavios(int n, string x, vector <vector <Celula>>& grelha) {
 	x[0] = toupper(x[0]);
 	x[1] = toupper(x[1]);
 
-	for (unsigned int i = 0; i < grelha.size(); i++) {
-		for (unsigned int j = 0; j < grelha[i].size(); j++) {
-			if (grelha[i][j].getImg() == '+');
-		}
-	}
-
 	for (unsigned int i = 0; i < navios.size(); i++) {
 		if (navios[i].getId() == n) {
 			int xx = navios[i].getX();

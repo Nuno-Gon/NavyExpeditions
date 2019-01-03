@@ -354,10 +354,7 @@ void Game::resolveCommand(string comando) {
 		displayInfoShips();
 	}
 	else
-		cout << "Comando inexistente!" << endl;
-	
-
-	//Jogador::moedas = Jogador::moedas - 100;
+		cout << "Comando: '" << comando << "' inexistente!" << endl;
 }
 void Game::getFileCommands(string fich) {
 	string cmd;
