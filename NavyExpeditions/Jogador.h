@@ -24,11 +24,15 @@ public:
 	void setGaleao(Galeao g);
 	void setIate(Iate i);
 	void setPorto(Porto p);
+	void setMoney(int m);
+	int getMoney();
 	void moveNavios();
 	void compraNav(string tipo);
 	vector<Navio> getVectorNavios();
 	vector<Porto> getVectorPortos();
 	void verifcaEscuna();
+	void compraMercadorias(int id, int quantidade);
+	void vendeMercadorias(int id);
 	
 	~Jogador();
 
