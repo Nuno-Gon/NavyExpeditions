@@ -196,7 +196,7 @@ void Game::displayLista() {
 	cout << "Venda de peixe - " << config.getPrecoVendPeixe() << " moedas" << endl;
 	cout << "Venda de mercadoria - " << config.getPrecoVendMercad() << " moedas" << endl;
 	cout << "Compra de mercadoria - " << config.getPrecoCompMercad() << " moedas" << endl;
-	//lista varia valor entre portos?
+	cout << "\nDinheiro disponivel - " << jog.getMoney() << " moedas" << endl;
 }
 void Game::displayInfoShips() {
 	int n = 0;
@@ -301,9 +301,7 @@ void Game::resolveCommand(string comando) {
 		getFileCommands(cmd);
 	}
 	else if (cmd == "prox") {
-		//... gravar os comandos numa string e só depois executar
-		// ou fazer um do{ displaymenuTwo }whilte(prox) e depois correr os comandos
-		// dunno...
+		//feito fora
 	}
 	else if (cmd == "compranav") {
 		iss >> cmd; // fica com o tipo de navio a ser comprado
@@ -375,7 +373,11 @@ void Game::resolveCommand(string comando) {
 		iss >> cmd; //<nome>
 	}
 	else if (cmd == "sair") {
-		exit(0);
+		char op;
+		cout << "Deseja sair? (S/N) ";
+		cin.get(op);
+		if(op == 's' || op == 'S')
+			exit(0);
 	}
 	else if (cmd == "infonavios") {
 		displayInfoShips();
