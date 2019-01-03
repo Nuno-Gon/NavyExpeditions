@@ -64,7 +64,6 @@ void Game::eventPhase() {
 	//bool r = (rand() % 100) < config.getProbEvento();
 	bool r = true;
 	if (r == true) {
-		cout << "Ocorreu um evento!" << endl;
 		Evento ev(config.getProbCalmaria(), config.getProbMotim(), config.getProbSereias(), config.getProbTempestade());
 	}
 	else
