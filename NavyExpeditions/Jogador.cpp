@@ -523,6 +523,9 @@ void Jogador::autoEscuna(vector <vector <Celula>>& grelha) {
 					navios[i].setPeixe(+1);
 					grelha[navios[i].getX()][navios[i].getY()].getT()->change(false);
 				}
+				else {
+					grelha[navios[i].getX()][navios[i].getY()].getT()->produzir();
+				}
 			}
 		}
 	}

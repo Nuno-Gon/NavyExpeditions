@@ -10,7 +10,7 @@ public:
 	};
 
 	bool ret() {
-		return 0;
+		return true;
 	};
 	~Terra();
 };

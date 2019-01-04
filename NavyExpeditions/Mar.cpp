@@ -5,7 +5,7 @@
 
 Mar::Mar(){
 	this->peixe = true;
-	this->turno = 4;
+	this->turno = 3;
 }
 
 bool Mar::getPeixe() {
@@ -26,11 +26,14 @@ void Mar::decTurno() {
 }
 
 void Mar::produzir() {
-	if (peixe == false) {
+	
+	if (this->peixe == false) {
+		cout << "Não tem peixe crlh: "<< this->peixe << "turno: " << this->turno<< endl;
+		cin.get();
 		this->turno--;
-		if (turno == 0) {
+		if (this->turno == 0) {
 			this->peixe = true;
-			this->turno = 4;
+			this->turno = 3;
 		}
 	}
 }
