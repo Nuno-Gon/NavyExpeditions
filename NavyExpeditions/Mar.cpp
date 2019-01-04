@@ -28,8 +28,6 @@ void Mar::decTurno() {
 void Mar::produzir() {
 	
 	if (this->peixe == false) {
-		cout << "Não tem peixe crlh: "<< this->peixe << "turno: " << this->turno<< endl;
-		cin.get();
 		this->turno--;
 		if (this->turno == 0) {
 			this->peixe = true;
