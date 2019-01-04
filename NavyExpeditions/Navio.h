@@ -27,7 +27,6 @@ public:
 	void setAgua(int a);
 	void setDeriva(bool d);
 	void setAut(bool a);
-	virtual void pescar() {};
 	~Navio();
 
 private:

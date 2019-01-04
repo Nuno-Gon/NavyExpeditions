@@ -14,8 +14,12 @@ public:
 
 	 void produzir();
 	 void change(bool x);
-	~Mar();
+	 bool ret() {
+		 return peixe;
+	 }
 
+	~Mar();
+	
 	bool peixe;
 	int turno;
 };

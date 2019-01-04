@@ -8,6 +8,10 @@ public:
 	};
 	void change(bool x) {
 	};
+
+	bool ret() {
+		return 0;
+	};
 	~Terra();
 };
 

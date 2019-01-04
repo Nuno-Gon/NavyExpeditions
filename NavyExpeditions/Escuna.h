@@ -10,8 +10,5 @@ class Escuna : public Navio {
 
 public:
 	Escuna();
-
-	void pescar();
-
 	~Escuna();
 };
