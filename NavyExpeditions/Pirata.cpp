@@ -27,12 +27,14 @@ void Pirata::inserePirata(int x, int y, string tipo) {
 		Veleiro v;
 		v.setX(x);
 		v.setY(y);
+		setVeleiro(v);
 		cout << "Criou um navio pirata do tipo veleiro" << v.getX() << endl;
 	}
 	else if (tipo == "f") {
 		Fragata f;
 		f.setX(x);
 		f.setY(y);
+		setFragata(f);
 		cout << "Criou um navio pirata do tipo fragata" << endl;
 	}
 	else
