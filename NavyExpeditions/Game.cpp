@@ -50,13 +50,11 @@ void Game::run() {
 			}
 
 		} while (comando != "prox");
-
-		jog.verifcaEscuna();
-		jog.moverFragataAut(pir.getVectorNavios());
+		
+		autoPhase();
 		//Combates:
-		jog.combateNavios(pir.getVectorNavios());
-		grelha[0][0].getT()->change(false);
-		grelha[0][0].getT()->produzir();
+		combatPhase();
+		
 		//Eventos:
 		eventPhase();
 		//Piratas:
@@ -73,6 +71,15 @@ void Game::eventPhase() {
 	else
 		cout << "Nao ocorreu evento!" << endl;
 	cin.get();
+}
+void Game::autoPhase() {
+	jog.autoEscuna(grelha);
+	jog.verifcaEscuna();
+	jog.moverFragataAut(pir.getVectorNavios());
+	//grelha[0][0].getT()->produzir();
+}
+void Game::combatPhase() {
+	jog.combateNavios(pir.getVectorNavios());
 }
 void Game::setGrelha() {
 	/*passar o mapa de um Vetor de Strings (primeira meta)

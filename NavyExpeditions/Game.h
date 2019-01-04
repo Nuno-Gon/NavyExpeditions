@@ -29,6 +29,8 @@ public:
 	void load(string nome);
 	void del(string nome);
 	void eventPhase();
+	void autoPhase();
+	void combatPhase();
 	bool confirmaComando(string comando);
 	~Game();
 	
