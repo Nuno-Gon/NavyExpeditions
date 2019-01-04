@@ -485,6 +485,7 @@ void Jogador::compraMercadorias(int id, int quantidade, int preco) {
 					else {
 						cout << "Nao tem dinheiro suficiente" << endl;
 					}
+					this->navios[i].setAgua(1000);
 					done = true;
 				}
 			}
@@ -505,6 +506,7 @@ void Jogador::vendeMercadorias(int id, int precoM, int precoP) {
 					setMoney(navios[i].getPeixe() * precoP);
 					navios[i].setMercadorias(-navios[i].getMercadoria());
 					navios[i].setPeixe(-navios[i].getPeixe());
+					this->navios[i].setAgua(1000);
 					done = true;
 				}
 			}
@@ -545,6 +547,7 @@ void Jogador::compraSoldados(int id, int quantidade, int preco) {
 					if (navios[i].setSoldados(quantidade)) {
 						setMoney(-(quantidade * preco));
 					}
+					this->navios[i].setAgua(1000);
 					done = true;
 				}
 			}
@@ -557,7 +560,7 @@ void Jogador::compraSoldados(int id, int quantidade, int preco) {
 
 void Jogador::ativarMovimentoAuto(int id) {
 	for (unsigned int i = 0; i < navios.size(); i++) {
-		if (navios[i].getIcon() == id) {
+		if (navios[i].getId() == id) {
 			navios[i].setAut(true);
 		}
 	}
@@ -565,7 +568,7 @@ void Jogador::ativarMovimentoAuto(int id) {
 
 void Jogador::movimentoStop(int id) {
 	for (unsigned int i = 0; i < navios.size(); i++) {
-		if (navios[i].getIcon() == id) {
+		if (navios[i].getId() == id) {
 			navios[i].setAut(false);
 		}
 	}
