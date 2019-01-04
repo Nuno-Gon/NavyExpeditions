@@ -356,6 +356,113 @@ void Jogador::compraNav(string tipo, int preco) {
 	}
 }
 
+bool Jogador::segueNavio(Navio n1, Navio n2) {
+	if ((n1.getX() == n2.getX() - 2 && n1.getY() == n2.getY() - 2)) {
+		n1.setX(n1.getX() - 2);
+		n1.setY(n1.getY() - 2);
+		return true;
+	}
+	else if ((n1.getX() == n2.getX() - 2 && n1.getY() == n2.getY() - 1)) {
+		n1.setX(n1.getX() - 2);
+		n1.setY(n1.getY() - 1);
+		return true;
+	}
+	else if ((n1.getX() == n2.getX() - 2 && n1.getY() == n2.getY() - 0)) {
+		n1.setX(n1.getX() - 2);
+		n1.setY(n1.getY() - 0);
+		return true;
+	}
+	else if ((n1.getX() == n2.getX() - 2 && n1.getY() == n2.getY() + 1)) {
+		n1.setX(n1.getX() - 2);
+		n1.setY(n1.getY() + 1);
+		return true;
+	}
+	else if ((n1.getX() == n2.getX() - 2 && n1.getY() == n2.getY() + 2)) {
+		n1.setX(n1.getX() - 2);
+		n1.setY(n1.getY() + 2);
+		return true;
+	}
+	else if ((n1.getX() == n2.getX() + 2 && n1.getY() == n2.getY() - 2)) {
+		n1.setX(n1.getX() + 2);
+		n1.setY(n1.getY() - 2);
+		return true;
+	}
+	else if ((n1.getX() == n2.getX() + 2 && n1.getY() == n2.getY() - 1)) {
+		n1.setX(n1.getX() + 2);
+		n1.setY(n1.getY() - 1);
+		return true;
+	}
+	else if ((n1.getX() == n2.getX() + 2 && n1.getY() == n2.getY() - 0)) {
+		n1.setX(n1.getX() + 2);
+		n1.setY(n1.getY() - 0);
+		return true;
+	}
+	else if ((n1.getX() == n2.getX() + 2 && n1.getY() == n2.getY() + 1)) {
+		n1.setX(n1.getX() + 2);
+		n1.setY(n1.getY() + 1);
+		return true;
+	}
+	else if ((n1.getX() == n2.getX() + 2 && n1.getY() == n2.getY() + 2)) {
+		n1.setX(n1.getX() + 2);
+		n1.setY(n1.getY() + 2);
+	}
+	else if ((n1.getX() == n2.getX() - 1 && n1.getY() == n2.getY() - 2)) {
+		n1.setX(n1.getX() - 1);
+		n1.setY(n1.getY() - 2);
+		return true;
+	}
+	else if ((n1.getX() == n2.getX() - 0 && n1.getY() == n2.getY() - 2)) {
+		n1.setX(n1.getX() - 0);
+		n1.setY(n1.getY() - 2);
+		return true;
+	}
+	else if ((n1.getX() == n2.getX() + 1 && n1.getY() == n2.getY() - 2)) {
+		n1.setX(n1.getX() + 1);
+		n1.setY(n1.getY() - 2);
+		return true;
+	}
+	else if ((n1.getX() == n2.getX() - 1 && n1.getY() == n2.getY() + 2)) {
+		n1.setX(n1.getX() - 1);
+		n1.setY(n1.getY() + 2);
+		return true;
+	}
+	else if ((n1.getX() == n2.getX() - 0 && n1.getY() == n2.getY() + 2)) {
+		n1.setX(n1.getX() - 0);
+		n1.setY(n1.getY() + 2);
+		return true;
+	}
+	else if ((n1.getX() == n2.getX() + 1 && n1.getY() == n2.getY() + 2)) {
+		n1.setX(n1.getX() + 1);
+		n1.setY(n1.getY() + 2);
+		return true;
+	}
+	return false;
+}
+
+void Jogador::moverFragataAut(vector<Navio> naviosPiratas) {
+	for (unsigned int i = 0; i < navios.size(); i++) {
+		if (navios[i].getIcon() == 'f') {
+			for (unsigned int j = 0; j < naviosPiratas.size(); j++) {
+				if ((navios[i].getX() == naviosPiratas[j].getX() - 1 && (navios[i].getY() == naviosPiratas[j].getY() - 1 || navios[i].getY() == naviosPiratas[j].getY() || navios[i].getY() == naviosPiratas[j].getY() + 1))
+					|| (navios[i].getX() == naviosPiratas[j].getX() && (navios[i].getY() == navios[j].getY() - 1 || navios[i].getY() == naviosPiratas[j].getY() || navios[i].getY() == naviosPiratas[j].getY() + 1))
+					|| (navios[i].getX() == naviosPiratas[j].getX() + 1) && ((navios[i].getY() == naviosPiratas[j].getY() - 1 || navios[i].getY() == naviosPiratas[j].getY() || navios[i].getY() == naviosPiratas[j].getY() + 1))) {
+					//combate
+				}
+				else if (segueNavio(navios[i], naviosPiratas[j]))
+					return;
+				else {
+					for (unsigned int k = 0; k < navios.size(); k++) {
+						if (navios[k].getIcon() == 'e' || navios[k].getIcon() == 'g') {
+							if (segueNavio(navios[i], navios[k]))
+								return;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 void Jogador::verifcaEscuna() {
 	for (unsigned int i = 0; i < navios.size(); i++) {
 		if (navios[i].getIcon() == 'v' || navios[i].getIcon() == 'g' || navios[i].getIcon() == 'i') {
@@ -398,70 +505,7 @@ void Jogador::verifcaEscuna() {
 
 					if (navios[i].getAut() == true) {
 						if (navios[i].getIcon() == 'v') {
-							if ((navios[i].getX() == navios[j].getX() - 2 && navios[i].getY() == navios[j].getY() - 2)) {
-								navios[i].setX(navios[i].getX() - 2);
-								navios[i].setY(navios[i].getY() - 2);
-							}
-							else if ((navios[i].getX() == navios[j].getX() - 2 && navios[i].getY() == navios[j].getY() - 1)) {
-								navios[i].setX(navios[i].getX() - 2);
-								navios[i].setY(navios[i].getY() - 1);
-							}
-							else if ((navios[i].getX() == navios[j].getX() - 2 && navios[i].getY() == navios[j].getY() - 0)) {
-								navios[i].setX(navios[i].getX() - 2);
-								navios[i].setY(navios[i].getY() - 0);
-							}
-							else if ((navios[i].getX() == navios[j].getX() - 2 && navios[i].getY() == navios[j].getY() + 1)) {
-								navios[i].setX(navios[i].getX() - 2);
-								navios[i].setY(navios[i].getY() + 1);
-							}
-							else if ((navios[i].getX() == navios[j].getX() - 2 && navios[i].getY() == navios[j].getY() + 2)) {
-								navios[i].setX(navios[i].getX() - 2);
-								navios[i].setY(navios[i].getY() + 2);
-							}
-							else if ((navios[i].getX() == navios[j].getX() + 2 && navios[i].getY() == navios[j].getY() - 2)) {
-								navios[i].setX(navios[i].getX() + 2);
-								navios[i].setY(navios[i].getY() - 2);
-							}
-							else if ((navios[i].getX() == navios[j].getX() + 2 && navios[i].getY() == navios[j].getY() - 1)) {
-								navios[i].setX(navios[i].getX() + 2);
-								navios[i].setY(navios[i].getY() - 1);
-							}
-							else if ((navios[i].getX() == navios[j].getX() + 2 && navios[i].getY() == navios[j].getY() - 0)) {
-								navios[i].setX(navios[i].getX() + 2);
-								navios[i].setY(navios[i].getY() - 0);
-							}
-							else if ((navios[i].getX() == navios[j].getX() + 2 && navios[i].getY() == navios[j].getY() + 1)) {
-								navios[i].setX(navios[i].getX() + 2);
-								navios[i].setY(navios[i].getY() + 1);
-							}
-							else if ((navios[i].getX() == navios[j].getX() + 2 && navios[i].getY() == navios[j].getY() + 2)) {
-								navios[i].setX(navios[i].getX() + 2);
-								navios[i].setY(navios[i].getY() + 2);
-							}
-							else if ((navios[i].getX() == navios[j].getX() - 1 && navios[i].getY() == navios[j].getY() - 2)) {
-								navios[i].setX(navios[i].getX() - 1);
-								navios[i].setY(navios[i].getY() - 2);
-							}
-							else if ((navios[i].getX() == navios[j].getX() - 0 && navios[i].getY() == navios[j].getY() - 2)) {
-								navios[i].setX(navios[i].getX() - 0);
-								navios[i].setY(navios[i].getY() - 2);
-							}
-							else if ((navios[i].getX() == navios[j].getX() + 1 && navios[i].getY() == navios[j].getY() - 2)) {
-								navios[i].setX(navios[i].getX() + 1);
-								navios[i].setY(navios[i].getY() - 2);
-							}
-							else if ((navios[i].getX() == navios[j].getX() - 1 && navios[i].getY() == navios[j].getY() + 2)) {
-								navios[i].setX(navios[i].getX() - 1);
-								navios[i].setY(navios[i].getY() + 2);
-							}
-							else if ((navios[i].getX() == navios[j].getX() - 0 && navios[i].getY() == navios[j].getY() + 2)) {
-								navios[i].setX(navios[i].getX() - 0);
-								navios[i].setY(navios[i].getY() + 2);
-							}
-							else if ((navios[i].getX() == navios[j].getX() + 1 && navios[i].getY() == navios[j].getY() + 2)) {
-								navios[i].setX(navios[i].getX() + 1);
-								navios[i].setY(navios[i].getY() + 2);
-							}
+							segueNavio(navios[i], navios[j]);
 						}
 					}
 				}

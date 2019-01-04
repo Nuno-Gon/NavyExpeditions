@@ -33,13 +33,14 @@ public:
 	vector<Porto> getVectorPortos();
 	vector<Navio> getVectorNaviosDeriva();
 	void verifcaEscuna();
+	bool segueNavio(Navio, Navio);
 	void compraMercadorias(int id, int quantidade, int preco);
 	void vendeMercadorias(int id, int precoM, int precoP);
 	void vendeNavio(string tipo, int, int, int);
 	void compraSoldados(int id, int quantidade, int preco);
 	void ativarMovimentoAuto(int);
 	void movimentoStop(int);
-	void moverNaviosAuto();
+	void moverFragataAut(vector<Navio>);
 	
 	~Jogador();
 
