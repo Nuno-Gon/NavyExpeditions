@@ -31,11 +31,15 @@ public:
 	void compraNav(string tipo, int preco);
 	vector<Navio> getVectorNavios();
 	vector<Porto> getVectorPortos();
+	vector<Navio> getVectorNaviosDeriva();
 	void verifcaEscuna();
 	void compraMercadorias(int id, int quantidade, int preco);
 	void vendeMercadorias(int id, int precoM, int precoP);
 	void vendeNavio(string tipo, int, int, int);
 	void compraSoldados(int id, int quantidade, int preco);
+	void ativarMovimentoAuto(int);
+	void movimentoStop(int);
+	void moverNaviosAuto();
 	
 	~Jogador();
 
@@ -44,4 +48,5 @@ private:
 	int money;
 	vector<Navio> navios;
 	vector<Porto> portos;
+	vector<Navio> naviosDeriva;
 };

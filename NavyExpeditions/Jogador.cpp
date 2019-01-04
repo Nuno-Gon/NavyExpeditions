@@ -37,6 +37,9 @@ vector<Navio> Jogador::getVectorNavios() {
 void Jogador::setPorto(Porto p) {
 	portos.push_back(p);
 }
+vector<Navio> Jogador::getVectorNaviosDeriva() {
+	return naviosDeriva;
+}
 vector<Porto> Jogador::getVectorPortos() {
 	return portos;
 }
@@ -357,36 +360,108 @@ void Jogador::verifcaEscuna() {
 	for (unsigned int i = 0; i < navios.size(); i++) {
 		if (navios[i].getIcon() == 'v' || navios[i].getIcon() == 'g' || navios[i].getIcon() == 'i') {
 			for (unsigned int j = 0; j < navios.size(); j++) {
-				if ((navios[i].getX() == navios[j].getX() - 1 || navios[i].getX() == navios[j].getX() || navios[i].getX() == navios[j].getX() + 1)
-					&& (navios[i].getY() == navios[j].getY() - 1 || navios[i].getY() == navios[j].getY() || navios[i].getY() == navios[j].getY() + 1)) {
-					if (navios[i].getIcon() == 'v') {
-						if (40 - navios[i].getMercadoria() > navios[j].getMercadoria()) {
-							navios[i].setMercadorias(navios[j].getMercadoria());
-							navios[j].setMercadorias(-navios[j].getMercadoria());
+				if (navios[i].getIcon() == 'v') {
+					if ((navios[i].getX() == navios[j].getX() - 1 && (navios[i].getY() == navios[j].getY() - 1 || navios[i].getY() == navios[j].getY() || navios[i].getY() == navios[j].getY() + 1))
+						|| (navios[i].getX() == navios[j].getX() && (navios[i].getY() == navios[j].getY() - 1 || navios[i].getY() == navios[j].getY() || navios[i].getY() == navios[j].getY() + 1))
+						|| (navios[i].getX() == navios[j].getX() + 1) && ((navios[i].getY() == navios[j].getY() - 1 || navios[i].getY() == navios[j].getY() || navios[i].getY() == navios[j].getY() + 1))) {
+						if (navios[i].getIcon() == 'v') {
+							if (40 - navios[i].getMercadoria() > navios[j].getMercadoria()) {
+								navios[i].setMercadorias(navios[j].getMercadoria());
+								navios[j].setMercadorias(-navios[j].getMercadoria());
+							}
+							else {
+								navios[j].setMercadorias(-(40 - navios[i].getMercadoria()));
+								navios[i].setMercadorias(40 - navios[i].getMercadoria());
+							}
 						}
-						else {
-							navios[j].setMercadorias(-(40 - navios[i].getMercadoria()));
-							navios[i].setMercadorias(40 - navios[i].getMercadoria());
+						else if (navios[i].getIcon() == 'g') {
+							if (70 - navios[i].getMercadoria() > navios[j].getMercadoria()) {
+								navios[i].setMercadorias(navios[j].getMercadoria());
+								navios[j].setMercadorias(-navios[j].getMercadoria());
+							}
+							else {
+								navios[j].setMercadorias(-(70 - navios[i].getMercadoria()));
+								navios[i].setMercadorias(70 - navios[i].getMercadoria());
+							}
+						}
+						else if (navios[i].getIcon() == 'i') {
+							if (100 - navios[i].getMercadoria() > navios[j].getMercadoria()) {
+								navios[i].setMercadorias(navios[j].getMercadoria());
+								navios[j].setMercadorias(-navios[j].getMercadoria());
+							}
+							else {
+								navios[j].setMercadorias(-(100 - navios[i].getMercadoria()));
+								navios[i].setMercadorias(100 - navios[i].getMercadoria());
+							}
 						}
 					}
-					else if (navios[i].getIcon() == 'g') {
-						if (70 - navios[i].getMercadoria() > navios[j].getMercadoria()) {
-							navios[i].setMercadorias(navios[j].getMercadoria());
-							navios[j].setMercadorias(-navios[j].getMercadoria());
-						}
-						else {
-							navios[j].setMercadorias(-(70 - navios[i].getMercadoria()));
-							navios[i].setMercadorias(70 - navios[i].getMercadoria());
-						}
-					}
-					else if (navios[i].getIcon() == 'i') {
-						if (100 - navios[i].getMercadoria() > navios[j].getMercadoria()) {
-							navios[i].setMercadorias(navios[j].getMercadoria());
-							navios[j].setMercadorias(-navios[j].getMercadoria());
-						}
-						else {
-							navios[j].setMercadorias(-(100 - navios[i].getMercadoria()));
-							navios[i].setMercadorias(100 - navios[i].getMercadoria());
+
+					if (navios[i].getAut() == true) {
+						if (navios[i].getIcon() == 'v') {
+							if ((navios[i].getX() == navios[j].getX() - 2 && navios[i].getY() == navios[j].getY() - 2)) {
+								navios[i].setX(navios[i].getX() - 2);
+								navios[i].setY(navios[i].getY() - 2);
+							}
+							else if ((navios[i].getX() == navios[j].getX() - 2 && navios[i].getY() == navios[j].getY() - 1)) {
+								navios[i].setX(navios[i].getX() - 2);
+								navios[i].setY(navios[i].getY() - 1);
+							}
+							else if ((navios[i].getX() == navios[j].getX() - 2 && navios[i].getY() == navios[j].getY() - 0)) {
+								navios[i].setX(navios[i].getX() - 2);
+								navios[i].setY(navios[i].getY() - 0);
+							}
+							else if ((navios[i].getX() == navios[j].getX() - 2 && navios[i].getY() == navios[j].getY() + 1)) {
+								navios[i].setX(navios[i].getX() - 2);
+								navios[i].setY(navios[i].getY() + 1);
+							}
+							else if ((navios[i].getX() == navios[j].getX() - 2 && navios[i].getY() == navios[j].getY() + 2)) {
+								navios[i].setX(navios[i].getX() - 2);
+								navios[i].setY(navios[i].getY() + 2);
+							}
+							else if ((navios[i].getX() == navios[j].getX() + 2 && navios[i].getY() == navios[j].getY() - 2)) {
+								navios[i].setX(navios[i].getX() + 2);
+								navios[i].setY(navios[i].getY() - 2);
+							}
+							else if ((navios[i].getX() == navios[j].getX() + 2 && navios[i].getY() == navios[j].getY() - 1)) {
+								navios[i].setX(navios[i].getX() + 2);
+								navios[i].setY(navios[i].getY() - 1);
+							}
+							else if ((navios[i].getX() == navios[j].getX() + 2 && navios[i].getY() == navios[j].getY() - 0)) {
+								navios[i].setX(navios[i].getX() + 2);
+								navios[i].setY(navios[i].getY() - 0);
+							}
+							else if ((navios[i].getX() == navios[j].getX() + 2 && navios[i].getY() == navios[j].getY() + 1)) {
+								navios[i].setX(navios[i].getX() + 2);
+								navios[i].setY(navios[i].getY() + 1);
+							}
+							else if ((navios[i].getX() == navios[j].getX() + 2 && navios[i].getY() == navios[j].getY() + 2)) {
+								navios[i].setX(navios[i].getX() + 2);
+								navios[i].setY(navios[i].getY() + 2);
+							}
+							else if ((navios[i].getX() == navios[j].getX() - 1 && navios[i].getY() == navios[j].getY() - 2)) {
+								navios[i].setX(navios[i].getX() - 1);
+								navios[i].setY(navios[i].getY() - 2);
+							}
+							else if ((navios[i].getX() == navios[j].getX() - 0 && navios[i].getY() == navios[j].getY() - 2)) {
+								navios[i].setX(navios[i].getX() - 0);
+								navios[i].setY(navios[i].getY() - 2);
+							}
+							else if ((navios[i].getX() == navios[j].getX() + 1 && navios[i].getY() == navios[j].getY() - 2)) {
+								navios[i].setX(navios[i].getX() + 1);
+								navios[i].setY(navios[i].getY() - 2);
+							}
+							else if ((navios[i].getX() == navios[j].getX() - 1 && navios[i].getY() == navios[j].getY() + 2)) {
+								navios[i].setX(navios[i].getX() - 1);
+								navios[i].setY(navios[i].getY() + 2);
+							}
+							else if ((navios[i].getX() == navios[j].getX() - 0 && navios[i].getY() == navios[j].getY() + 2)) {
+								navios[i].setX(navios[i].getX() - 0);
+								navios[i].setY(navios[i].getY() + 2);
+							}
+							else if ((navios[i].getX() == navios[j].getX() + 1 && navios[i].getY() == navios[j].getY() + 2)) {
+								navios[i].setX(navios[i].getX() + 1);
+								navios[i].setY(navios[i].getY() + 2);
+							}
 						}
 					}
 				}
@@ -476,6 +551,22 @@ void Jogador::compraSoldados(int id, int quantidade, int preco) {
 			if (!done) {
 				cout << "O navio escolhido nao esta num porto" << endl;
 			}
+		}
+	}
+}
+
+void Jogador::ativarMovimentoAuto(int id) {
+	for (unsigned int i = 0; i < navios.size(); i++) {
+		if (navios[i].getIcon() == id) {
+			navios[i].setAut(true);
+		}
+	}
+}
+
+void Jogador::movimentoStop(int id) {
+	for (unsigned int i = 0; i < navios.size(); i++) {
+		if (navios[i].getIcon() == id) {
+			navios[i].setAut(false);
 		}
 	}
 }
