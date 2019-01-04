@@ -52,6 +52,10 @@ bool Navio::getDeriva() {
 	return this->deriva;
 }
 
+bool Navio::getAut() {
+	return this->aut;
+}
+
 void Navio::setId(int id) {
 	this->id = id;
 }
@@ -316,6 +320,10 @@ void Navio::setAgua(int a) {
 
 void Navio::setDeriva(bool d) {
 	this->deriva = d;
+}
+
+void Navio::setAut(bool a) {
+	this->aut = a;
 }
 
 Navio::~Navio()

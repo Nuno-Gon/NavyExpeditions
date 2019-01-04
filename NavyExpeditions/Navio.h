@@ -18,6 +18,7 @@ public:
 	int getPeixe();
 	int getAgua();
 	bool getDeriva();
+	bool getAut();
 
 	void setId(int id);
 	bool setSoldados(int s);
@@ -25,6 +26,7 @@ public:
 	bool setPeixe(int p);
 	void setAgua(int a);
 	void setDeriva(bool d);
+	void setAut(bool a);
 
 	~Navio();
 
@@ -36,4 +38,5 @@ private:
 	int peixe;
 	int agua;
 	bool deriva;
+	bool aut = false;
 };
