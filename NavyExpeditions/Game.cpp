@@ -77,7 +77,13 @@ void Game::autoPhase() {
 	jog.autoEscuna(grelha);
 	jog.verifcaEscuna();
 	jog.moverFragataAut(pir.getVectorNavios());
-	//grelha[0][0].getT()->produzir();
+	//produzir peixe onde foi pescado
+	for (unsigned int i = 0; i < grelha.size(); i++) {
+		for (unsigned int j = 0; j < grelha[i].size(); j++) {
+			if (grelha[i][j].getT()->ret() == false)
+				grelha[i][j].getT()->produzir();
+		}
+	}
 }
 void Game::combatPhase() {
 	jog.combateNavios(pir.getVectorNavios());

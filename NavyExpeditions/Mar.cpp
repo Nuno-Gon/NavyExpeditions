@@ -5,7 +5,7 @@
 
 Mar::Mar(){
 	this->peixe = true;
-	this->turno = 3;
+	this->turno = 4;
 }
 
 bool Mar::getPeixe() {
@@ -30,7 +30,7 @@ void Mar::produzir() {
 		this->turno--;
 		if (turno == 0) {
 			this->peixe = true;
-			this->turno = 3;
+			this->turno = 4;
 		}
 	}
 }
