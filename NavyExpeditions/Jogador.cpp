@@ -668,4 +668,10 @@ void Jogador::combateNavios(vector<Navio> naviosPiratas) {
 	}
 }
 
+void Jogador::consomeAgua() {
+	for (unsigned int i = 0; i < navios.size(); i++) {
+		navios[i].setAgua(-1);
+	}
+}
+
 Jogador::~Jogador(){}

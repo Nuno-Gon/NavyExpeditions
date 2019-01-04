@@ -43,6 +43,7 @@ public:
 	void moverFragataAut(vector<Navio>);
 	void autoEscuna(vector <vector <Celula>>& grelha);
 	void combateNavios(vector<Navio>);
+	void consomeAgua();
 	
 	~Jogador();
 
