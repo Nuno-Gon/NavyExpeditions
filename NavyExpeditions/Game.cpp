@@ -52,7 +52,7 @@ void Game::run() {
 		} while (comando != "prox");
 
 		//Combates:
-
+		grelha[0][0].getT()->produzirPeixe();
 		//Eventos:
 		eventPhase();
 		//Piratas:

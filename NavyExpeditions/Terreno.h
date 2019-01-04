@@ -3,8 +3,8 @@ class Terreno{
 public:
 	Terreno();
 
-	//usar VIRTUAL functions para depois ter polimorfismo no Mar Terra Porto
-
+	//usar VIRTUAL functions class abstract
+	virtual void produzirPeixe() = 0;
 	~Terreno();
 };
 

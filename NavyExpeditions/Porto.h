@@ -4,11 +4,10 @@
 #include <sstream>
 #include <fstream>
 #include <vector>
-#include "Terreno.h"
 
 using namespace std;
 
-class Porto : public Terreno{
+class Porto{
 public:
 
 	//Porto();

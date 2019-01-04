@@ -26,6 +26,10 @@ public:
 		}
 		return os;
 	}*/
+	
+	Terreno * getT() {
+		return this->t;
+	}
 
 	friend ostream& operator<<(ostream& os, const Celula& g) {
 		cout << g.img;
