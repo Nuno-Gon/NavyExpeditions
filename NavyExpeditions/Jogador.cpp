@@ -448,15 +448,17 @@ void Jogador::moverFragataAut(vector<Navio> naviosPiratas) {
 					|| (navios[i].getX() == naviosPiratas[j].getX() + 1) && ((navios[i].getY() == naviosPiratas[j].getY() - 1 || navios[i].getY() == naviosPiratas[j].getY() || navios[i].getY() == naviosPiratas[j].getY() + 1))) {
 					//combate
 				}
-				else if (segueNavio(navios[i], naviosPiratas[j]))
-					return;
-				else {
-					for (unsigned int k = 0; k < navios.size(); k++) {
-						if (navios[k].getIcon() == 'e' || navios[k].getIcon() == 'g') {
-							if (segueNavio(navios[i], navios[k]))
-								return;
+				else if (navios[i].getAut() == true) {
+					if (segueNavio(navios[i], naviosPiratas[j]))
+						return;
+					else {
+						for (unsigned int k = 0; k < navios.size(); k++) {
+							if (navios[k].getIcon() == 'e' || navios[k].getIcon() == 'g') {
+								if (segueNavio(navios[i], navios[k]))
+									return;
 						}
 					}
+				}
 				}
 			}
 		}

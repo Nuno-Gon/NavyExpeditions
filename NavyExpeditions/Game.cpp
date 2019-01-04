@@ -51,6 +51,8 @@ void Game::run() {
 
 		} while (comando != "prox");
 
+		jog.verifcaEscuna();
+		jog.moverFragataAut(pir.getVectorNavios);
 		//Combates:
 		grelha[0][0].getT()->change(false);
 		grelha[0][0].getT()->produzir();
@@ -348,10 +350,14 @@ void Game::resolveCommand(string comando) {
 		jog.moveNavios(n, x, grelha);
 	}
 	else if (cmd == "auto") {
-		iss >> cmd; //<N>
+		int i;
+		iss >> i; //<N>
+		jog.ativarMovimentoAuto(i);
 	}
 	else if (cmd == "stop") {
-		iss >> cmd; //<N>
+		int i;
+		iss >> i; //<N>
+		jog.movimentoStop(i);
 	}
 	else if (cmd == "pirata") {
 		iss >> cmd; //<x><y><t>
