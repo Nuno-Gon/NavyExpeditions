@@ -52,8 +52,9 @@ void Game::run() {
 		} while (comando != "prox");
 
 		jog.verifcaEscuna();
-		jog.moverFragataAut(pir.getVectorNavios);
+		jog.moverFragataAut(pir.getVectorNavios());
 		//Combates:
+		jog.combateNavios(pir.getVectorNavios());
 		grelha[0][0].getT()->change(false);
 		grelha[0][0].getT()->produzir();
 		//Eventos:

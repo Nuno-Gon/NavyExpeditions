@@ -42,6 +42,7 @@ public:
 	void movimentoStop(int);
 	void moverFragataAut(vector<Navio>);
 	void autoEscuna(vector <vector <Celula>>& grelha);
+	void combateNavios(vector<Navio>);
 	
 	~Jogador();
 

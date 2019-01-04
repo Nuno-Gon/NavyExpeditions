@@ -629,4 +629,36 @@ void Jogador::movimentoStop(int id) {
 	}
 }
 
+void Jogador::combateNavios(vector<Navio> naviosPiratas) {
+	for (unsigned int i = 0; i < navios.size(); i++) {
+		for (unsigned int j = 0; i < naviosPiratas.size(); j++) {
+			if ((navios[i].getX() == naviosPiratas[j].getX() - 1 && (navios[i].getY() == naviosPiratas[j].getY() - 1 || navios[i].getY() == naviosPiratas[j].getY() || navios[i].getY() == naviosPiratas[j].getY() + 1))
+				|| (navios[i].getX() == naviosPiratas[j].getX() && (navios[i].getY() == navios[j].getY() - 1 || navios[i].getY() == naviosPiratas[j].getY() || navios[i].getY() == naviosPiratas[j].getY() + 1))
+				|| (navios[i].getX() == naviosPiratas[j].getX() + 1) && ((navios[i].getY() == naviosPiratas[j].getY() - 1 || navios[i].getY() == naviosPiratas[j].getY() || navios[i].getY() == naviosPiratas[j].getY() + 1))) {
+				srand(time(NULL));
+				int n1 = rand() % navios[i].getSoldados() + 1;
+				srand(time(NULL));
+				int n2 = rand() % naviosPiratas[j].getSoldados() + 1;
+				if (n1 > n2) {
+					naviosPiratas[j].setSoldados(-((navios[i].getSoldados() * 0.2) * 2));
+					navios[i].setSoldados(-(navios[i].getSoldados() * 0.2));
+					if (naviosPiratas[j].getSoldados() < 1) {
+						navios[i].setMercadorias(naviosPiratas[j].getMercadoria() / 2);
+						navios[i].setAgua(naviosPiratas[j].getAgua());
+						naviosPiratas.erase(naviosPiratas.begin() + j);
+					}
+				}
+				else if (n2 > n1) {
+					navios[i].setSoldados(-((naviosPiratas[j].getSoldados() * 0.2) * 2));
+					naviosPiratas[j].setSoldados(-(naviosPiratas[j].getSoldados() * 0.2));
+					if (navios[i].getSoldados() < 1) {
+						naviosPiratas[j].setMercadorias(navios[i].getMercadoria() / 2);
+						navios.erase(navios.begin() + i);
+					}
+				}
+			}
+		}
+	}
+}
+
 Jogador::~Jogador(){}
