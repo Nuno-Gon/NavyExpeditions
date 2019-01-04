@@ -31,6 +31,7 @@ void Game::run() {
 			Consola::clrscr();
 			displayMap(); //Aparecer 2x2 com cores
 			displayShips();
+			displayShipsP();
 			Consola::setBackgroundColor(Consola::PRETO);
 			displayMenuTwo();
 		
@@ -210,6 +211,26 @@ void Game::displayShips() {
 		Consola::setBackgroundColor(Consola::PRETO);
 	}
 }
+
+void Game::displayShips() {
+	int x, y;
+	char c;
+	auto i = jog.getVectorNavios();
+
+	for (unsigned int j = 0; j < jog.getVectorNavios().size(); j++) {
+		x = (i[j].getY() * 2) + 2;
+		y = (i[j].getX() * 2) + 1;
+		c = i[j].getIcon();
+
+		Consola::gotoxy(x, y);
+		Consola::setBackgroundColor(Consola::BRANCO);
+		Consola::setTextColor(Consola::VERDE);
+		cout << c;
+		Consola::setTextColor(Consola::BRANCO);
+		Consola::setBackgroundColor(Consola::PRETO);
+	}
+}
+
 void Game::displayLista() {
 //	Consola::gotoxy(45, 0);
 	cout << endl;
@@ -368,7 +389,12 @@ void Game::resolveCommand(string comando) {
 		jog.movimentoStop(i);
 	}
 	else if (cmd == "pirata") {
+		int i;
+		int j;
+		iss >> i;
+		iss >> j;
 		iss >> cmd; //<x><y><t>
+		pir.inserePirata(i, j, cmd);
 	}
 	else if (cmd == "evpos") {
 		iss >> cmd; //<E><x><y>

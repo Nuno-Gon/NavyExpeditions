@@ -4,6 +4,7 @@ class Pirata {
 public:
 	Pirata();
 
+	void inserePirata(int, int, string);
 	void setVeleiro(Veleiro v);
 	void setFragata(Fragata f);
 	void setPorto(Porto p);

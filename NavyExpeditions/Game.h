@@ -21,6 +21,7 @@ public:
 	void run();
 	void displayMap();
 	void displayShips();
+	void displayShipsP();
 	void displayLista();
 	void displayInfoShips();
 	void setGrelha();

@@ -22,7 +22,22 @@ vector<Porto> Pirata::getVectorPortos() {
 	return portos;
 }
 
-
+void Pirata::inserePirata(int x, int y, string tipo) {
+	if (tipo == "v") {
+		Veleiro v;
+		v.setX(x);
+		v.setY(y);
+		cout << "Criou um navio pirata do tipo veleiro" << v.getX() << endl;
+	}
+	else if (tipo == "f") {
+		Fragata f;
+		f.setX(x);
+		f.setY(y);
+		cout << "Criou um navio pirata do tipo fragata" << endl;
+	}
+	else
+		cout << "Tipo de navio pirata inexistente" << endl;
+}
 
 Pirata::~Pirata()
 {

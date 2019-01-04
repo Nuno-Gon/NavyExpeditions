@@ -642,6 +642,7 @@ void Jogador::combateNavios(vector<Navio> naviosPiratas) {
 				srand(time(NULL));
 				int n2 = rand() % naviosPiratas[j].getSoldados() + 1;
 				if (n1 > n2) {
+					cout << "Barco do jogador venceu o combate" << endl;
 					naviosPiratas[j].setSoldados(-((navios[i].getSoldados() * 0.2) * 2));
 					navios[i].setSoldados(-(navios[i].getSoldados() * 0.2));
 					if (naviosPiratas[j].getSoldados() < 1) {
@@ -651,6 +652,7 @@ void Jogador::combateNavios(vector<Navio> naviosPiratas) {
 					}
 				}
 				else if (n2 > n1) {
+					cout << "Barco pirata venceu o combate" << endl;
 					navios[i].setSoldados(-((naviosPiratas[j].getSoldados() * 0.2) * 2));
 					naviosPiratas[j].setSoldados(-(naviosPiratas[j].getSoldados() * 0.2));
 					if (navios[i].getSoldados() < 1) {
