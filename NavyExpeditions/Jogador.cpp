@@ -515,7 +515,16 @@ void Jogador::verifcaEscuna() {
 		}
 	}
 }
-
+void Jogador::autoEscuna(vector <vector <Celula>>& grelha) {
+	for (unsigned int i = 0; i < navios.size(); i++) {
+		if (navios[i].getIcon() == 'e') {
+			if (grelha[navios[i].getX()][navios[i].getY()].getImg() == '.') {
+				grelha[navios[i].getX()][navios[i].getY()].getT()->change(false);
+				navios[i].pescar();
+			}
+		}
+	}
+}
 void Jogador::compraMercadorias(int id, int quantidade, int preco) {
 	
 	bool done = false;

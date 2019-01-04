@@ -4,10 +4,9 @@
 
 Escuna::Escuna() : Navio(10, 0, 0, 100, 'e') {}
 
-/*void Escuna::pescar() {
-	//this->getX();
-	//this->getY();
-}*/
+void Escuna::pescar() {
+	this->setPeixe(this->getPeixe()+1);
+}
 
 Escuna::~Escuna()
 {
