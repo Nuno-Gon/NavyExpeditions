@@ -27,8 +27,6 @@ public:
 		return os;
 	}*/
 
-
-
 	friend ostream& operator<<(ostream& os, const Celula& g) {
 		cout << g.img;
 		return os;
