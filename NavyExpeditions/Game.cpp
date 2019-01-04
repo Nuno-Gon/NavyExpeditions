@@ -64,8 +64,8 @@ void Game::run() {
 }
 void Game::eventPhase() {
 	srand((unsigned int)time(NULL));
-	//bool r = (rand() % 100) < config.getProbEvento();
-	bool r = true;
+	bool r = (rand() % 100) < config.getProbEvento();
+	//bool r = true;
 	if (r == true) {
 		Evento ev(config.getProbCalmaria(), config.getProbMotim(), config.getProbSereias(), config.getProbTempestade());
 	}
@@ -421,9 +421,11 @@ void Game::resolveCommand(string comando) {
 	}
 	else if (cmd == "loadg") {
 		iss >> cmd; //<nome>
+		load(cmd);
 	}
 	else if (cmd == "delg") {
 		iss >> cmd; //<nome>
+		del(cmd);
 	}
 	else if (cmd == "sair") {
 		char op;
@@ -460,27 +462,142 @@ void Game::getFileCommands(string fich) {
 }
 
 void Game::save(string nome) {
-	//Precisa de construtor por copia, mas depois como o vetor 2d de Celulas têm ponteiros têm que se criar algo para copiar lá, still searching
-	
-	/*There are 2 types of copying: copy constructor when you create object on a non initialized space and copy operator where you need to release the old state of the object before setting new state.*/
-	
-	ofstream file_obj;
-	file_obj.open(nome, ios::app);
-//https://stackoverflow.com/questions/12902751/how-to-clone-object-in-c-or-is-there-another-solution
-	//Game *g = this;
-	/*g.config = this->config;
-	g.jog = this->jog;
-	g.grelha = this->grelha;*/
-	//file_obj.write((char*)&g, sizeof(g));
-	file_obj.close();
-}
-/* Game::load(string nome) {
-	ifstream file_obj;
-	file_obj.open(nome, ios::in);
-	Game game;
-	file_obj.read((char*)&game, sizeof(game));
-}
+	ofstream myfile;
+	myfile.open(nome);
 
-void Game::del(string nome) {}*/
+	if (!myfile.is_open()) {
+		cout << "Erro a abrir o ficheiro para escrita!" << endl;
+		return;
+	}
+
+	Configuration c;
+	c = this->config;
+	myfile << c.getLinhas() << endl;
+	myfile << c.getColunas() << endl;
+	myfile << c.getMoedas() << endl;
+	myfile << c.getProbPirata() << endl;
+	myfile << c.getPrecoNavio() << endl;
+	myfile << c.getPrecoSoldado() << endl;
+	myfile << c.getPrecoVendPeixe() << endl;
+	myfile << c.getPrecoCompMercad() << endl;
+	myfile << c.getPrecoVendMercad() << endl;
+	myfile << c.getSoldadosPorto() << endl;
+	myfile << c.getProbEvento() << endl;
+	myfile << c.getProbTempestade() << endl;
+	myfile << c.getProbSereias() << endl;
+	myfile << c.getProbCalmaria() << endl;
+	myfile << c.getProbMotim() << endl;
+	for (int i = 0; i < c.getLinhas(); i++) {
+		for (int j = 0; j < c.getColunas(); j++) {
+			myfile << c.map[i][j];
+		}
+		myfile << endl;
+	}
+
+
+	Jogador j;
+	j = this->jog;
+	vector<Navio> n = this->jog.getVectorNavios();
+
+	myfile << j.getMoney() << endl;
+	for (unsigned int i = 0; i < n.size(); i++) {
+		myfile << n[i].getId() << endl;
+		myfile << n[i].getSoldados() << endl;
+		myfile << n[i].getMercadoria() << endl;
+		myfile << n[i].getPeixe() << endl;
+		myfile << n[i].getAgua() << endl;
+		myfile << n[i].getDeriva() << endl;
+		myfile << n[i].getAut() << endl;
+		myfile << n[i].getIcon() << endl;
+		myfile << n[i].getX() << endl;
+		myfile << n[i].getY() << endl;
+	}
+
+	vector<Porto> po = this->jog.getVectorPortos();
+	for (unsigned int i = 0; i < po.size(); i++) {
+		myfile << po[i].getX() << " " << po[i].getY() << endl;
+	}
+
+	/*Pirata p;
+	p = this->pir;
+	*/
+	myfile.close();
+}
+void Game::load(string nome) {
+	ifstream myfile;
+	myfile.open(nome);
+	string line;
+
+	if (!myfile.is_open()) {
+		cout << "Erro a abrir o ficheiro para escrita!" << endl;
+		return;
+	}
+
+
+	config.~Configuration();
+	getline(myfile, line);
+	config.setLinhas(stoi(line));
+	line.clear();
+	getline(myfile, line);
+	config.setColunas(stoi(line));
+	line.clear();
+	getline(myfile, line);
+	config.setMoedas(stoi(line));
+	line.clear();
+	getline(myfile, line);
+	config.setProbPirata(stoi(line));
+	line.clear();
+	getline(myfile, line);
+	config.setPrecoNavio(stoi(line));
+	line.clear();
+	getline(myfile, line);
+	config.setPrecoSoldado(stoi(line));
+	line.clear();
+	getline(myfile, line);
+	config.setPrecoVendPeixe(stoi(line));
+	line.clear();
+	getline(myfile, line);
+	config.setPrecoCompMercad(stoi(line));
+	line.clear();
+	getline(myfile, line);
+	config.setPrecoVendMercad(stoi(line));
+	line.clear();
+	getline(myfile, line);
+	config.setSoldadosPorto(stoi(line));
+	line.clear();
+	getline(myfile, line);
+	config.setProbEvento(stoi(line));
+	line.clear();
+	getline(myfile, line);
+	config.setProbTempestade(stoi(line));
+	line.clear();
+	getline(myfile, line);
+	config.setProbSereias(stoi(line));
+	line.clear();
+	getline(myfile, line);
+	config.setProbCalmaria(stoi(line));
+	line.clear();
+	getline(myfile, line);
+	config.setProbMotim(stoi(line));
+	line.clear();
+
+	for (int i = 0; i < config.getLinhas(); i++) {
+		getline(myfile, line);
+		config.map.push_back(line);
+		line.clear();
+	}
+
+	myfile.close();
+}
+void Game::del(string nome) {
+
+	const char * c = nome.c_str();
+
+	if (remove(c) != 0)
+		perror("Error deleting file");
+	else
+		puts("File successfully deleted");
+	return;
+}
 
 Game::~Game(){}
