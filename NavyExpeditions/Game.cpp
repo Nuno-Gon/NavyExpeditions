@@ -212,19 +212,19 @@ void Game::displayShips() {
 	}
 }
 
-void Game::displayShips() {
+void Game::displayShipsP() {
 	int x, y;
 	char c;
-	auto i = jog.getVectorNavios();
+	auto i = pir.getVectorNavios();
 
-	for (unsigned int j = 0; j < jog.getVectorNavios().size(); j++) {
+	for (unsigned int j = 0; j < pir.getVectorNavios().size(); j++) {
 		x = (i[j].getY() * 2) + 2;
 		y = (i[j].getX() * 2) + 1;
 		c = i[j].getIcon();
 
 		Consola::gotoxy(x, y);
 		Consola::setBackgroundColor(Consola::BRANCO);
-		Consola::setTextColor(Consola::VERDE);
+		Consola::setTextColor(Consola::VERMELHO);
 		cout << c;
 		Consola::setTextColor(Consola::BRANCO);
 		Consola::setBackgroundColor(Consola::PRETO);
