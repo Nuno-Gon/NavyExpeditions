@@ -4,7 +4,8 @@ public:
 	Terreno();
 
 	//usar VIRTUAL functions class abstract
-	virtual void produzirPeixe() = 0;
+	virtual void produzir() = 0;
+	virtual void change(bool x)=0;
 	~Terreno();
 };
 

@@ -25,7 +25,7 @@ void Mar::decTurno() {
 	this->turno--;
 }
 
-void Mar::produzirPeixe() {
+void Mar::produzir() {
 	cout << "A PRODUZIR CRLH" << endl;
 	cin.get();
 	if (peixe == false) {
@@ -35,6 +35,10 @@ void Mar::produzirPeixe() {
 			this->turno = 3;
 		}
 	}
+}
+
+void Mar::change(bool x) {
+	this->peixe = x;
 }
 
 Mar::~Mar(){}

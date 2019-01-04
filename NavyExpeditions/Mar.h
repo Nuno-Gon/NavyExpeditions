@@ -12,8 +12,8 @@ public:
 	 void setTurno(int x);
 	 void decTurno();
 
-	 void produzirPeixe();
-
+	 void produzir();
+	 void change(bool x);
 	~Mar();
 
 	bool peixe;

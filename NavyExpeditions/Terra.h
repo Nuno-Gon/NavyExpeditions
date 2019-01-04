@@ -3,8 +3,10 @@
 class Terra : public Terreno {
 public:
 	Terra();
-	void produzirPeixe() {
-		//nao produz peixe
+	void produzir() {
+		//Produzir plantas? haha
+	};
+	void change(bool x) {
 	};
 	~Terra();
 };
